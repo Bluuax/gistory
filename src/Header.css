@@ -6,10 +6,25 @@
   border-radius: 1.2rem;
 }
 
+@media (max-width: 1000px) {
+  .Header {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 630px) {
+  .Header {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
 .Header-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   list-style-type: none;
 }
 
