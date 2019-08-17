@@ -6,24 +6,24 @@ export class Header extends Component {
     return (
       <header className="Header">
         <nav>
-          <ul class="Header-container">
+          <ul className="Header-container">
             <li className="Header-element">
-              <a href="" class="Header-link">
+              <a href="" className="Header-link">
                 Landing/Search
               </a>
             </li>
             <li className="Header-element">
-              <a href="" class="Header-link">
+              <a href="" className="Header-link">
                 How To Use
               </a>
             </li>
             <li className="Header-element">
-              <a href="" class="Header-link">
+              <a href="" className="Header-link">
                 History
               </a>
             </li>
             <li className="Header-element">
-              <a href="" class="Header-link">
+              <a href="" className="Header-link">
                 About
               </a>
             </li>
