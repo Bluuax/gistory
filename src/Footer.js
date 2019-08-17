@@ -4,10 +4,10 @@ import './Footer.css';
 export class Footer extends Component {
   render() {
     return (
-      <footer>
+      <footer className="Footer">
         <hr className="Footer-line" />
         <p>
-          Coded with ♥️ by{' '}
+          Coded with lots of 🍊🥤 by{' '}
           <a href="https://github.com/Bluuax" className="Footer-link">
             Max
           </a>
