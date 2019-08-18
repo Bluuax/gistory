@@ -14,7 +14,7 @@ export class Footer extends Component {
           <span role="img" aria-label="juice">
             🥤
           </span>
-          {' '}by{' '}
+          by{' '}
           <a href="https://github.com/Bluuax" target="_blank" rel="noopener noreferrer" className="Footer-link">
             Max
           </a>
