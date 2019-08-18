@@ -1,0 +1,9 @@
+.Landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Landing-title {
+  font-size: 5rem;
+}

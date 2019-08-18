@@ -1,0 +1,17 @@
+.History-container {
+  display: grid;
+  grid-template-areas: 'timeline code cards';
+  grid-auto-columns: 1fr;
+  margin: 0 1rem 0 1rem;
+}
+
+.History-code {
+  grid-area: code;
+}
+
+.History-cards {
+  grid-area: cards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

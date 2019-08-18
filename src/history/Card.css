@@ -1,0 +1,13 @@
+.Card {
+  margin: 2rem 0 2rem 0;
+  height: 25rem;
+  width: 20rem;
+  background: #f5cba7;
+  border-radius: 1rem;
+  box-shadow: 0 4px 70px rgba(0, 38, 55, 0.31);
+}
+
+.Card-title {
+  padding-top: 1rem;
+  font-weight: bold;
+}
