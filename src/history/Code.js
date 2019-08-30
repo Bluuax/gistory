@@ -5,11 +5,19 @@ export class Code extends Component {
   render() {
     return (
       <div className="Code">
-        <code class>
-          Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venusaur
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmeleon
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </code>
+        <pre>
+          <code>
+            {`<label class="select">
+  <select class="selector">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+  </select>
+</label>`}
+          </code>
+        </pre>
       </div>
     );
   }
