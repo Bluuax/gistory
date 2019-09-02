@@ -1,7 +1,7 @@
 .History-container {
   display: grid;
   grid-template-areas: 'timeline code cards';
-  
+
   /* TODO: Verifiy is necessary
   grid-auto-columns: 1fr;
   margin: 0 1rem 0 1rem;
@@ -14,7 +14,6 @@
       'timeline'
       'code '
       'cards';
-
   }
 }
 

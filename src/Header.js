@@ -9,17 +9,17 @@ export class Header extends Component {
           <ul className="Header-container">
             <li className="Header-element">
               <a href="/" className="Header-link">
-                Landing/Search
+                Home
               </a>
             </li>
             <li className="Header-element">
               <a href="/" className="Header-link">
-                How To Use
+              History
               </a>
             </li>
             <li className="Header-element">
               <a href="/" className="Header-link">
-                History
+                Tutorial
               </a>
             </li>
             <li className="Header-element">
