@@ -19,6 +19,7 @@
 
 .History-code {
   grid-area: code;
+  width: 100vw;
 }
 
 .History-cards {

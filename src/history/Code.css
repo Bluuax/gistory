@@ -8,4 +8,6 @@
 
 .Code-block {
   padding: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
