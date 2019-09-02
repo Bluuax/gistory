@@ -1,14 +1,7 @@
 .Footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   font-family: 'Roboto', monospace;
-}
-
-@media (min-height: 100%) {
-  .Footer {
-    position: relative;
-  }
 }
 
 .Footer-line {

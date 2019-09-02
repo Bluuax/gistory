@@ -1,10 +1,13 @@
 .Card {
   margin: 2rem 0 2rem 0;
-  height: 25rem;
-  width: 20rem;
+
+
+  height: 37.5vh;
+  width: 20vh;
+
   background: #f5cba7;
   border-radius: 1rem;
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 .Card-title {
