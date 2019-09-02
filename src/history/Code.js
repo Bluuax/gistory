@@ -5,7 +5,7 @@ export class Code extends Component {
   render() {
     return (
       <div className="Code">
-        <pre>
+        <pre className="Code-block">
           <code>
             {`<label class="select">
   <select class="selector">
