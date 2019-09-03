@@ -2,14 +2,31 @@ import React, { Component } from 'react';
 import './Landing.css';
 
 export class Landing extends Component {
+  state = {
+    input: ''
+  };
+
+  handleChange = e => {
+    this.setState({ input: e.target.value });
+  };
+
+  handleClick = () => {
+    console.log('HANDLEINPUT');
+    console.log(this.state.input);
+
+    /* TODO if File is found and valid 
+        --> route to history 
+        else route to error page or display error here
+    */
+  };
+
   render() {
-    // dsddd
     return (
       <div className="Landing">
         <h1 className="Landing-title">Gistory</h1>
-        <h3>Let's search for a File</h3>
-        <input type="text" />
-        <button>Go</button>
+        <h3>Type the GitHub URL into the Textbox</h3>
+        <input type="text" onChange={this.handleChange} />
+        <button onClick={this.handleClick}>Go</button>
 
         {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}
       </div>

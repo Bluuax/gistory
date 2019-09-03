@@ -4,6 +4,11 @@ import Card from './Card';
 import './History.css';
 
 export class History extends Component {
+  // TODO: Maybe no default props needed
+  static defaultProps = {
+    gitHubURL: ''
+  };
+
   render() {
     return (
       <div className="History-container">
