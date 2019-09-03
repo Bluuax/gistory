@@ -23,6 +23,9 @@
 
 .History-code {
   grid-area: code;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .History-cards {
