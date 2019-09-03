@@ -14,7 +14,10 @@ export class Landing extends Component {
     console.log('HANDLEINPUT');
     console.log(this.state.input);
 
-    /* TODO if File is found and valid 
+    /* TODO 
+        verify that state is set and not empty
+    
+        if File is found and valid 
         --> route to history 
         else route to error page or display error here
     */

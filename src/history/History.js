@@ -12,13 +12,17 @@ export class History extends Component {
   render() {
     return (
       <div className="History-container">
+        <div className="History-timeline">
+          <h1>Timeline</h1>
+        </div>
         <div className="History-code">
           <Code />
         </div>
-        <div className="History-cards">
-          <Card title="Changes" color="blue" />
-          {/* TODO: Modaler Dialog - See all changes */}
-          <Card className="History-info-card" title="Info" />
+        <div className="History-changes-card">
+          <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
+        </div>
+        <div className="History-info-card">
+          <Card title="Info" color="#BB8FCE" />
         </div>
       </div>
     );

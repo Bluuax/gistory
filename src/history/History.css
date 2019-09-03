@@ -1,24 +1,29 @@
 .History-container {
   display: grid;
-  grid-template-areas: 'timeline code cards';
-
-  /* TODO: Verifiy is necessary
-  grid-auto-columns: 1fr;
-  margin: 0 1rem 0 1rem;
-  */
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'timeline code changes-card'
+    'timeline code info-card';
 }
 
 @media (max-width: 820px) {
   .History-container {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     grid-template-areas:
       'timeline'
-      'code '
-      'cards';
+      'code'
+      'changes-card'
+      'info-card';
   }
+}
 
-  .History-code {
-    width: 100vw;
-  }
+.History-timeline {
+  grid-area: timeline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .History-code {
@@ -29,7 +34,20 @@
 }
 
 .History-cards {
-  grid-area: cards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.History-changes-card {
+  grid-area: changes-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.History-info-card {
+  grid-area: info-card;
   display: flex;
   flex-direction: column;
   align-items: center;

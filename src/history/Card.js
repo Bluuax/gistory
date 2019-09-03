@@ -4,7 +4,7 @@ import './Card.css';
 export class Card extends Component {
   render() {
     return (
-      <div className="Card">
+      <div className="Card" style={{ backgroundColor: this.props.color }}>
         <div className="Card-title">{this.props.title}</div>
       </div>
     );

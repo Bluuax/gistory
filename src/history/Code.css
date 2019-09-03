@@ -5,6 +5,7 @@
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   text-align: left;
   width: 40vw;
+  height: 80vh;
 }
 
 @media (max-width: 820px) {
@@ -14,7 +15,7 @@
 }
 
 .Code-block {
-  padding: 1.5rem;
+  padding: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
