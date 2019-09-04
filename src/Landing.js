@@ -28,7 +28,7 @@ export class Landing extends Component {
       <div className="Landing">
         <h1 className="Landing-title">Gistory</h1>
         <h3>Type the GitHub URL into the Textbox</h3>
-        <input type="text" onChange={this.handleChange} />
+        <input type="text" value={this.state.input} onChange={this.handleChange} />
         <button onClick={this.handleClick}>Go</button>
 
         {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}

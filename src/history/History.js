@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Timeline from './Timeline';
 import Code from './Code';
 import Card from './Card';
 import './History.css';
+
 
 export class History extends Component {
   // TODO: Maybe no default props needed
@@ -13,7 +15,7 @@ export class History extends Component {
     return (
       <div className="History-container">
         <div className="History-timeline">
-          <h1>Timeline</h1>
+          <Timeline boxesAmount={7}/>
         </div>
         <div className="History-code">
           <Code />
