@@ -1,5 +1,5 @@
 .Card {
-  height: 100%; /*37.5vh;*/
+  height: 100%; 
   width: 20vw;
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
@@ -8,6 +8,7 @@
 
 @media (max-width: 820px) {
   .Card {
+    height: 25vh;
     width: 95vw;
   }
 }
