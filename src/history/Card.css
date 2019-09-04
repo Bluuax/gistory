@@ -1,9 +1,9 @@
 .Card {
-  margin: 2rem 0 2rem 0;
-  height: 37.5vh;
+  height: 100%; /*37.5vh;*/
   width: 20vw;
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  transition: all ease 0.5s;
 }
 
 @media (max-width: 820px) {

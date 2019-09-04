@@ -1,11 +1,11 @@
 .Code {
-  margin: 2rem 1rem 2rem 1rem;
-  background: white;
+  background-color: white;
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   text-align: left;
   width: 40vw;
-  height: 80vh;
+  height: 100%;
+  transition: all ease 0.5s;
 }
 
 @media (max-width: 820px) {

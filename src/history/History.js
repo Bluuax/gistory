@@ -15,15 +15,15 @@ export class History extends Component {
     return (
       <div className="History-container">
         <div className="History-timeline">
-          <Timeline boxesAmount={7}/>
+          <Timeline boxesAmount={6}/>
         </div>
         <div className="History-code">
           <Code />
         </div>
-        <div className="History-changes-card">
+        <div className="History-card History-changes-card">
           <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
         </div>
-        <div className="History-info-card">
+        <div className="History-card History-info-card">
           <Card title="Info" color="#BB8FCE" />
         </div>
       </div>

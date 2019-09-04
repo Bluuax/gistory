@@ -1,7 +1,8 @@
 .History-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: 40vh 40vh;
+  grid-gap: 5vh;
   grid-template-areas:
     'timeline code changes-card'
     'timeline code info-card';
@@ -22,33 +23,27 @@
 .History-timeline {
   grid-area: timeline;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
 .History-code {
   grid-area: code;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.History-cards {
+.History-card {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
 .History-changes-card {
   grid-area: changes-card;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .History-info-card {
   grid-area: info-card;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
