@@ -8,43 +8,35 @@ import { Base64 } from 'js-base64';
 
 export class History extends Component {
   static defaultProps = {
-    source: 'https://api.github.com/repos/bluuax/gistory/commits?path=src/App.js'
+    /* TODO: Branch dynamisch machen */
+    source: 'https://api.github.com/repos/bluuax/gistory/commits?sha=master&path=src/App.js'
   };
 
   state = {
-    versions: '',
+    versions: [],
     content: ''
   };
 
-  componentDidMount() {
-    let versions;
+  async componentDidMount() {
+    try {
+      const resp = await axios.get(this.props.source);
+      const commits = resp.data;
+      this.setState({ versions: commits });
 
-    axios.get(this.props.source).then(resp => {
-      console.log(resp.data);
-      versions = resp.data;
-    });
-
-    /*
-    axios.get(versions[0].).then(resp => {
-      console.log(resp.data);
-      versions = resp.data;
-    });
-    */
-
-    let temp =
-      'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref=1f9710a55dce1661cbf32f60cd54ad6513866dc5';
-
-    axios.get(temp).then(resp => {
-      console.log(Base64.decode(resp.data.content));
-      this.setState({ content: Base64.decode(resp.data.content) });
-    });
+      let contentSource = `https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref=${commits[0].sha}`;
+      const resp2 = await axios.get(contentSource);
+      const commit = resp2.data;
+      this.setState({ content: Base64.decode(commit.content) });
+    } catch (e) {
+      console.log('ERROR');
+    }
   }
 
   render() {
     return (
       <div className="History-container">
         <div className="History-timeline">
-          <Timeline boxesAmount={6} />
+          <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
         </div>
         <div className="History-code">
           <Code content={this.state.content} />
