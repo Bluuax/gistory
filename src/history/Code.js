@@ -6,17 +6,7 @@ export class Code extends Component {
     return (
       <div className="Code">
         <pre className="Code-block">
-          <code>
-            {`<label class="select">
-  <select class="selector">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-  </select>
-</label>`}
-          </code>
+          <code>{this.props.content}</code>
         </pre>
       </div>
     );
