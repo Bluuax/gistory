@@ -14,7 +14,8 @@ export class History extends Component {
 
   state = {
     versions: [],
-    content: ''
+    content: '',
+    loading: true
   };
 
   async componentDidMount() {
@@ -26,27 +27,31 @@ export class History extends Component {
       let contentSource = `https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref=${commits[0].sha}`;
       const resp2 = await axios.get(contentSource);
       const commit = resp2.data;
-      this.setState({ content: Base64.decode(commit.content) });
+      this.setState({ content: Base64.decode(commit.content), loading: false });
     } catch (e) {
-      console.log('ERROR');
+      console.error('ERROR');
     }
   }
 
   render() {
     return (
       <div className="History-container">
-        <div className="History-timeline">
-          <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
-        </div>
-        <div className="History-code">
-          <Code content={this.state.content} />
-        </div>
-        <div className="History-card History-changes-card">
-          <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
-        </div>
-        <div className="History-card History-info-card">
-          <Card title="Info" color="#BB8FCE" />
-        </div>
+        {!this.state.loading && (
+          <React.Fragment>
+            <div className="History-timeline">
+              <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
+            </div>
+            <div className="History-code">
+              <Code content={this.state.content} />
+            </div>
+            <div className="History-card History-changes-card">
+              <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
+            </div>
+            <div className="History-card History-info-card">
+              <Card title="Info" color="#BB8FCE" />
+            </div>
+          </React.Fragment>
+        )}
       </div>
     );
   }
