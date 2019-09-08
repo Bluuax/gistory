@@ -1,17 +1,24 @@
 import React from 'react';
-import Header from './Header';
+import { Switch, Route } from 'react-router-dom';
+import Navbar from './Navbar';
 import Landing from './Landing';
 import History from './history/History';
-import Footer from './Footer';
+import NotFound from './NotFound';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <Landing /> */}
-      <History />
-      {/* <Footer /> */}
+      <header>
+        <Navbar />
+      </header>
+
+      <Switch>
+        <Route exact path="/" component={Landing}></Route>
+        <Route exact path="/history" component={History}></Route>
+        <Route component={NotFound}></Route>
+      </Switch>
     </div>
   );
 }

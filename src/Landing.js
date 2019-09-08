@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from './Footer';
 import './Landing.css';
 
 export class Landing extends Component {
@@ -34,6 +35,7 @@ export class Landing extends Component {
         <button onClick={this.handleClick}>Go</button>
 
         {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}
+        <Footer />
       </div>
     );
   }

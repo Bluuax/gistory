@@ -1,14 +1,15 @@
-.Header {
+.Navbar {
   padding: 0.3rem 0 0.05rem 0;
   margin: 1vh auto 4vh auto;
-  width: 45rem;
+  width: 70%;
+  max-width: 100rem;
   background: linear-gradient(#56ccf2, #25a5ed);
   border-radius: 1.2rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 820px) {
-  .Header {
+  .Navbar {
     margin: 0;
     width: 100%;
     border-radius: 0;
@@ -17,14 +18,14 @@
 
 /* TODO */
 @media (max-width: 630px) {
-  .Header {
+  .Navbar {
     margin: 0;
     width: 100%;
     border-radius: 0;
   }
 }
 
-.Header-container {
+.Navbar-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -32,17 +33,17 @@
   padding: 0;
 }
 
-.Header-element {
+.Navbar-element {
   padding: 0 2rem;
 }
 
-.Header-link {
+.Navbar-link {
   color: white;
   font-size: 1rem;
   font-weight: bold;
 }
 
-.Header-element > .Header-link::after {
+.Navbar-element > .Navbar-link::after {
   content: '';
   display: block;
   width: 0;
@@ -51,6 +52,6 @@
   transition: 0.5s;
 }
 
-.Header-element > .Header-link:hover::after {
+.Navbar-element > .Navbar-link:hover::after {
   width: 100%;
 }
