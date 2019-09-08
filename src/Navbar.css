@@ -55,3 +55,11 @@
 .Navbar-element > .Navbar-link:hover::after {
   width: 100%;
 }
+
+.Navbar-element > .Navbar-link-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 0.5rem;
+  border-bottom: 0.1rem solid #abebc6;
+}

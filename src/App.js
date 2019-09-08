@@ -13,7 +13,6 @@ function App() {
       <header>
         <Navbar />
       </header>
-
       <Switch>
         <Route exact path="/" component={Landing}></Route>
         <Route exact path="/history" component={History}></Route>
