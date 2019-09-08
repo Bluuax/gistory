@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Base64 } from 'js-base64';
 import Timeline from './Timeline';
 import Code from './Code';
 import Card from './Card';
 import './History.css';
-import axios from 'axios';
-import { Base64 } from 'js-base64';
 
 export class History extends Component {
   static defaultProps = {
@@ -29,7 +29,7 @@ export class History extends Component {
       const commit = resp2.data;
       this.setState({ content: Base64.decode(commit.content), loading: false });
     } catch (e) {
-      console.error('ERROR');
+      console.error(`ERROR: ${e}`);
     }
   }
 

@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Landing from './Landing';
 import History from './history/History';
+import About from './About';
 import NotFound from './NotFound';
-
 import './App.css';
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Landing}></Route>
         <Route exact path="/history" component={History}></Route>
+        <Route exact path="/about" component={About}></Route>
         <Route component={NotFound}></Route>
       </Switch>
     </div>
