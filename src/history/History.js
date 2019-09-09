@@ -36,6 +36,7 @@ export class History extends Component {
   render() {
     return (
       <div className="History-container">
+        {/* TODO: Loading-Spinner einbauen */}
         {!this.state.loading && (
           <React.Fragment>
             <div className="History-timeline">
