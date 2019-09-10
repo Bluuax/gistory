@@ -20,7 +20,9 @@ export class History extends Component {
 
   async componentDidMount() {
     try {
-      const commitListResp = await axios.get(this.props.source);
+      const commitListResp = await axios.get(this.props.source, {
+        headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+      });
       const commits = commitListResp.data;
       this.setState({ versions: commits });
 
@@ -59,7 +61,7 @@ export class History extends Component {
               <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
             </div>
             <div className="History-code">
-              <Code content={this.state.content[0]} language="jsx" />
+              <Code content={this.state.content[0]} language="jsx" /> {/* TODO: Dynamisch ermitteln */}
             </div>
             <div className="History-card History-changes-card">
               <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}

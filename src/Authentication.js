@@ -4,7 +4,7 @@ import netlify from 'netlify-auth-providers';
 export class Authentication extends Component {
   handleClick = () => {
     const authenticator = new netlify({});
-    authenticator.authenticate({ provider: 'github' }, (err, data) => {
+    authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (err, data) => {
       err
         ? console.error(`Error Authenticating with GitHub: ${err}`)
         : window.localStorage.setItem('token', data.token);
