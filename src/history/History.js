@@ -36,6 +36,10 @@ export class History extends Component {
       );
 
       this.setState({ content: commitsResp.map(content => Base64.decode(content.data.content)), loading: false });
+
+      // TODO: Temp
+      const temp = await axios.get('https://api.github.com/rate_limit');
+      console.log(temp.data.rate);
     } catch (e) {
       console.error(`ERROR: ${e}`);
     }
