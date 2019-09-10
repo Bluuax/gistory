@@ -14,20 +14,28 @@ export class History extends Component {
 
   state = {
     versions: [],
-    content: '',
+    contents: [],
     loading: true
   };
 
   async componentDidMount() {
     try {
-      const resp = await axios.get(this.props.source);
-      const commits = resp.data;
+      const commitListResp = await axios.get(this.props.source);
+      const commits = commitListResp.data;
       this.setState({ versions: commits });
 
-      let contentSource = `https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref=${commits[0].sha}`;
-      const resp2 = await axios.get(contentSource);
-      const commit = resp2.data;
-      this.setState({ content: Base64.decode(commit.content), loading: false });
+      const owner = 'Bluuax';
+      const repo = 'gistory';
+      const path = 'src/App.js';
+
+      const contentSource = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`;
+      const commitsResp = await Promise.all(
+        commits.map(async commit => {
+          return await axios.get(`${contentSource}${commit.sha}`);
+        })
+      );
+
+      this.setState({ content: commitsResp.map(content => Base64.decode(content.data.content)), loading: false });
     } catch (e) {
       console.error(`ERROR: ${e}`);
     }
@@ -43,7 +51,7 @@ export class History extends Component {
               <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
             </div>
             <div className="History-code">
-              <Code content={this.state.content} />
+              <Code content={this.state.content[0]} />
             </div>
             <div className="History-card History-changes-card">
               <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
