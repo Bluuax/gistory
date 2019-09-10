@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import netlify from 'netlify-auth-providers';
 
-// TODO
 export class Authentication extends Component {
   handleClick = () => {
-    console.log('####');
     const authenticator = new netlify({});
-    console.log('....');
     authenticator.authenticate({ provider: 'github' }, (err, data) => {
       err
-        ? alert('Error Authenticating with GitHub: ' + err)
-        : alert('Authenticated with GitHub. Access Token: ' + data.token);
+        ? console.error(`Error Authenticating with GitHub: ${err}`)
+        : window.localStorage.setItem('token', data.token);
     });
   };
 
@@ -19,6 +16,7 @@ export class Authentication extends Component {
       <div>
         <p>
           <a href="#" onClick={this.handleClick}>
+            {/* TODO */}
             Authenticate
           </a>
         </p>
