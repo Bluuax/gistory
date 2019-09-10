@@ -18,5 +18,5 @@
 
 .Code-block {
   padding: 1rem;
-  overflow: scroll;
+  overflow: auto;
 }
