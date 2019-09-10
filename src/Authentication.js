@@ -14,12 +14,8 @@ export class Authentication extends Component {
   render() {
     return (
       <div>
-        <p>
-          <a href="#" onClick={this.handleClick}>
-            {/* TODO */}
-            Authenticate
-          </a>
-        </p>
+        {/* TODO: GitHub - sign in styling */}
+        <button onClick={this.handleClick}>Authenticate</button>
       </div>
     );
   }

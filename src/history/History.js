@@ -31,7 +31,9 @@ export class History extends Component {
       const contentSource = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`;
       const commitsResp = await Promise.all(
         commits.map(async commit => {
-          return await axios.get(`${contentSource}${commit.sha}`);
+          return await axios.get(`${contentSource}${commit.sha}`, {
+            headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+          });
         })
       );
 
@@ -57,7 +59,7 @@ export class History extends Component {
               <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
             </div>
             <div className="History-code">
-              <Code content={this.state.content[0]} />
+              <Code content={this.state.content[0]} language="jsx" />
             </div>
             <div className="History-card History-changes-card">
               <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
