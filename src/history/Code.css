@@ -1,6 +1,6 @@
 .Code {
   display: flex;
-  background-color: white;
+  background-color: rgb(1, 22, 39);
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -16,7 +16,26 @@
   }
 }
 
-.Code-block {
+.Code pre {
+  text-align: left;
   padding: 1rem;
   overflow: auto;
+}
+
+.Code code {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.token-line {
+  line-height: 1.3em;
+  height: 1.3em;
+}
+
+.line-number {
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.3;
 }

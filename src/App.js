@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Landing from './Landing';
 import History from './history/History';
-import Authentication from './Authentication';
+import Authentication from './common/Authentication';
 import About from './About';
 import NotFound from './NotFound';
 import './App.css';
