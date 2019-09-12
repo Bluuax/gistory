@@ -1,6 +1,6 @@
 .Code {
   display: flex;
-  background-color: rgb(1, 22, 39);
+  background-color: rgb(246, 248, 250);
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -20,6 +20,11 @@
   text-align: left;
   padding: 1rem;
   overflow: auto;
+}
+
+/* TODO: Do not use in prod */
+.Code pre::-webkit-scrollbar {
+  background: transparent;
 }
 
 .Code code {

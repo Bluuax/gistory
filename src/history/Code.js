@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import theme from './theme';
 import './Code.css';
 
 export class Code extends Component {
