@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: 40vh 40vh;
-  grid-gap: 5vh;
+  grid-row-gap: 5vh;
   grid-template-areas:
     'timeline code info-card'
     'timeline code changes-card';
