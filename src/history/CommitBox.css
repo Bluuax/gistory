@@ -2,13 +2,22 @@
   margin: 2rem 0 2rem 0;
   height: 10vh;
   width: 20vw;
-  background-color: #73C6B6  ;
+  background-color: #73c6b6;
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   transition: all ease 0.5s;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .CommitBox:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.CommitBox img {
+    max-width:15%;
+    max-height:15%;
+    height:auto;
+    border-radius: 1rem;
 }

@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from './theme';
+import { Base64 } from 'js-base64';
 import './Code.css';
+import theme from './theme';
 
 export class Code extends Component {
   render() {
     return (
       <div className="Code">
-        <Highlight {...defaultProps} theme={theme} code={this.props.content} language={this.props.language}>
+        <Highlight
+          {...defaultProps}
+          theme={theme}
+          code={Base64.decode(this.props.content)}
+          language={this.props.language}
+        >
           {/* TODO */}
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Base64 } from 'js-base64';
 import Timeline from './Timeline';
 import Code from './Code';
 import Card from './Card';
@@ -14,7 +13,7 @@ export class History extends Component {
 
   state = {
     versions: [],
-    contents: [],
+    selectedCommit: {},
     loading: true
   };
 
@@ -39,7 +38,11 @@ export class History extends Component {
         })
       );
 
-      this.setState({ content: commitsResp.map(content => Base64.decode(content.data.content)), loading: false });
+      this.setState(st => ({
+        versions: st.versions.map((version, index) => ({ ...version, content: commitsResp[index].data.content })),
+        selectedCommit: {...st.versions[0], content: commitsResp[0].data.content},
+        loading: false
+      }));
 
       // TODO: Temp
       const temp = await axios.get('https://api.github.com/rate_limit', {
@@ -51,6 +54,13 @@ export class History extends Component {
     }
   }
 
+  selectCommit = sha => {
+    console.log(sha);
+    this.setState(st => ({
+      selectedCommit: st.versions.find(version => version.sha === sha)
+    }));
+  };
+
   render() {
     return (
       <div className="History-container">
@@ -58,16 +68,16 @@ export class History extends Component {
         {!this.state.loading && (
           <React.Fragment>
             <div className="History-timeline">
-              <Timeline displayAmount={6} id={this.state.versions.map(item => item.sha)} />
+              <Timeline displayAmount={6} versions={this.state.versions} selectCommit={this.selectCommit} />
             </div>
             <div className="History-code">
-              <Code content={this.state.content[0]} language="jsx" /> {/* TODO: Dynamisch ermitteln */}
-            </div>
-            <div className="History-card History-changes-card">
-              <Card title="Changes" color="#f5cba7" /> {/* TODO: Modaler Dialog - See all changes */}
+              <Code content={this.state.selectedCommit.content} language="jsx" /> {/* TODO: Dynamisch ermitteln */}
             </div>
             <div className="History-card History-info-card">
-              <Card title="Info" color="#BB8FCE" />
+              <Card title="Info" color="#f5cba7" />
+            </div>
+            <div className="History-card History-changes-card">
+              <Card title="Changes" color="#bb8fce" /> {/* TODO: Modaler Dialog - See all changes */}
             </div>
           </React.Fragment>
         )}

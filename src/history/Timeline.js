@@ -7,10 +7,17 @@ export class Timeline extends Component {
   };
 
   render() {
-    let commitBoxes = [];
-    for (let i = 0; i < this.props.id.length; i++) {
-      commitBoxes.push(<CommitBox key={this.props.id[i]} />);
-    }
+    const commitBoxes = this.props.versions.map(version => (
+      <CommitBox
+        key={version.sha}
+        sha={version.sha}
+        img={version.author.avatar_url}
+        name={version.commit.author.name}
+        date={version.commit.author.date}
+        message={version.commit.message}
+        selectCommit={this.props.selectCommit}
+      />
+    ));
 
     /* TODO: Click at first or last Item --> Display new row */
     return <div>{commitBoxes.slice(0, this.props.displayAmount)}</div>;
