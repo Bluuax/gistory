@@ -12,12 +12,12 @@
 
 .CommitBox:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .CommitBox img {
-    max-width:15%;
-    max-height:15%;
-    height:auto;
-    border-radius: 1rem;
+  max-width: 15%;
+  max-height: 15%;
+  height: auto;
+  border-radius: 1rem;
 }

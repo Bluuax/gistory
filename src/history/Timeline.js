@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CommitBox from './CommitBox';
+import './Timeline.css';
 
 export class Timeline extends Component {
   static defaultProps = {
@@ -20,7 +21,12 @@ export class Timeline extends Component {
     ));
 
     /* TODO: Click at first or last Item --> Display new row */
-    return <div>{commitBoxes.slice(0, this.props.displayAmount)}</div>;
+    // return <div>{commitBoxes.slice(0, this.props.displayAmount)}</div>;
+    return (
+      <div class="Timeline">
+        <div>{commitBoxes}</div>
+      </div>
+    );
   }
 }
 
