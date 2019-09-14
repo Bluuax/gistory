@@ -23,8 +23,8 @@ export class Timeline extends Component {
     /* TODO: Click at first or last Item --> Display new row */
     // return <div>{commitBoxes.slice(0, this.props.displayAmount)}</div>;
     return (
-      <div class="Timeline">
-        <div class="Timeline-boxes">{commitBoxes}</div>
+      <div className="Timeline">
+        <div className="Timeline-boxes">{commitBoxes}</div>
       </div>
     );
   }

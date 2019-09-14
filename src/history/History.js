@@ -63,10 +63,17 @@ export class History extends Component {
 
   render() {
     return (
-      <div className="History-container">
+      <React.Fragment>
         {/* TODO: Loading-Spinner einbauen */}
-        {!this.state.loading && (
-          <React.Fragment>
+        {this.state.loading ? (
+          <div className="History-spinner-container">
+            <div className="History-spinner">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        ) : (
+          <div className="History-container">
             <div className="History-timeline">
               <Timeline displayAmount={6} versions={this.state.versions} selectCommit={this.selectCommit} />
             </div>
@@ -79,9 +86,9 @@ export class History extends Component {
             <div className="History-card History-changes-card">
               <Card title="Changes" color="#bb8fce" /> {/* TODO: Modaler Dialog - See all changes */}
             </div>
-          </React.Fragment>
+          </div>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
