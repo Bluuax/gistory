@@ -1,14 +1,18 @@
 .Timeline {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.Timeline::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.Timeline-boxes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
-/* TODO: Do not use in prod */
-.Timeline::-webkit-scrollbar {
-  background: transparent;
 }

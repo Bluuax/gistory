@@ -20,10 +20,11 @@
   text-align: left;
   padding: 1rem;
   overflow: auto;
+  scrollbar-width: none;
 }
 
-/* TODO: Do not use in prod */
 .Code pre::-webkit-scrollbar {
+  width: 0;
   background: transparent;
 }
 

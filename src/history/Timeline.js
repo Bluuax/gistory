@@ -24,7 +24,7 @@ export class Timeline extends Component {
     // return <div>{commitBoxes.slice(0, this.props.displayAmount)}</div>;
     return (
       <div class="Timeline">
-        <div>{commitBoxes}</div>
+        <div class="Timeline-boxes">{commitBoxes}</div>
       </div>
     );
   }
