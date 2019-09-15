@@ -10,7 +10,7 @@
 
 @media (max-width: 820px) {
   .History-container {
-    grid-template-columns: auto;
+    grid-template-columns: 100vw;
     grid-template-rows: auto;
     grid-template-areas:
       'timeline'

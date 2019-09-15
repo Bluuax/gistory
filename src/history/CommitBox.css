@@ -15,6 +15,12 @@
   transform: scale(1.1);
 }
 
+@media (max-width: 820px) {
+  .CommitBox {
+    margin: 1rem 1rem;
+  }
+}
+
 .CommitBox img {
   max-width: 15%;
   max-height: 15%;

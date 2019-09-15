@@ -16,3 +16,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 820px) {
+  .Timeline-boxes {
+    flex-direction: row;
+    flex-wrap : wrap;
+  }
+}
