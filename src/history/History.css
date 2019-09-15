@@ -12,6 +12,7 @@
   .History-container {
     grid-template-columns: 100vw;
     grid-template-rows: auto;
+    grid-row-gap: 2vh;
     grid-template-areas:
       'timeline'
       'code'
