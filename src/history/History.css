@@ -23,9 +23,6 @@
 
 .History-timeline {
   grid-area: timeline;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .History-code {
