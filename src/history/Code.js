@@ -19,23 +19,14 @@ export class Code extends Component {
             <pre className={className} style={style}>
               <code>
                 {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: `${i}${line.map(item => (item.content))}</code>}` })} className="animation">
-                    {console.log(line)}
+                  <div
+                    {...getLineProps({ line, key: `${i}${line.map(item => item.content)}</code>}` })}
+                    className="animation"
+                  >
                     <div className="line-number">{i + 1}</div> {/* TODO */}
-                    {line.map((token, key) => {
-                      let tokenProps = { ...getTokenProps({ token, key }) };
-                      //console.log('TCL: Code -> render -> tokenProps', tokenProps);
-
-                      return (
-                        <span
-                          style={tokenProps.style}
-                          className={`${tokenProps.className}`}
-                          key={`${tokenProps.key}${tokenProps.children}${tokenProps.className}`}
-                        >
-                          {tokenProps.children}
-                        </span>
-                      );
-                    })}
+                    {line.map((token, key) => (
+                      <span {...getTokenProps({ token, key })} />
+                    ))}
                   </div>
                 ))}
               </code>
