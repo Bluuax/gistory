@@ -20,8 +20,8 @@ export class Code extends Component {
               <code>
                 {tokens.map((line, i) => (
                   <div
-                    {...getLineProps({ line, key: `${i}${line.map(item => item.content)}</code>}` })}
-                    className="animation"
+                    {...getLineProps({ line, key: `${i}${line.map(item => item.content)}` })}
+                    className="Code-line-animation"
                   >
                     <div className="line-number">{i + 1}</div> {/* TODO */}
                     {line.map((token, key) => (
