@@ -21,9 +21,20 @@ export class Code extends Component {
                 {tokens.map((line, i) => (
                   <div {...getLineProps({ line, key: i })}>
                     <div className="line-number">{i + 1}</div> {/* TODO */}
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
+                    {line.map((token, key) => {
+                      let tokenProps = { ...getTokenProps({ token, key }) };
+                      console.log('TCL: Code -> render -> tokenProps', tokenProps);
+
+                      return (
+                        <span
+                          style={tokenProps.style}
+                          className={`${tokenProps.className} animation`}
+                          key={`${tokenProps.key}${tokenProps.children}${tokenProps.className}`}
+                        >
+                          {tokenProps.children}
+                        </span>
+                      );
+                    })}
                   </div>
                 ))}
               </code>
