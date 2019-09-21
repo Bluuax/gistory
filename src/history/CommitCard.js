@@ -7,7 +7,7 @@ export class CommitCard extends Component {
     this.props.selectCommit(this.props.sha);
   };
 
-  getTime() {
+  getHumanReadableTime() {
     const date = new Date(this.props.date);
     return humanReadableTime(date);
   }
@@ -15,10 +15,15 @@ export class CommitCard extends Component {
   render() {
     return (
       <div className="CommitCard" onClick={this.handleClick}>
-        <img src={this.props.img} alt="avatar" />
-        {this.props.name}
-        <p>{this.getTime()}</p>
-        <p>{this.props.message}</p>
+        <div>{this.props.message}</div>
+        <div className="CommitCard-user">
+          <img src={this.props.img} alt="avatar" />
+          {this.props.name}
+          <br />
+          committed on {this.props.name}
+          {/* {this.getHumanReadableTime()} */}
+          {/* {this.getHumanReadableTime()} */}
+        </div>
       </div>
     );
   }
