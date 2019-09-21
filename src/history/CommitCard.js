@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-import './CommitBox.css';
+import { humanReadableTime } from '../common/helpers.js';
+import './CommitCard.css';
 
-export class CommitBox extends Component {
+export class CommitCard extends Component {
   handleClick = () => {
     this.props.selectCommit(this.props.sha);
   };
 
   getTime() {
     const date = new Date(this.props.date);
-    return new Intl.DateTimeFormat('en-GB', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    }).format(date);
+    return humanReadableTime(date);
   }
 
   render() {
     return (
-      <div className="CommitBox" onClick={this.handleClick}>
+      <div className="CommitCard" onClick={this.handleClick}>
         <img src={this.props.img} alt="avatar" />
         {this.props.name}
         <p>{this.getTime()}</p>
@@ -30,4 +24,4 @@ export class CommitBox extends Component {
   }
 }
 
-export default CommitBox;
+export default CommitCard;

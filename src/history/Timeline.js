@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CommitBox from './CommitBox';
+import CommitCard from './CommitCard';
 import './Timeline.css';
 
 export class Timeline extends Component {
@@ -8,8 +8,8 @@ export class Timeline extends Component {
   };
 
   render() {
-    const commitBoxes = this.props.versions.map(version => (
-      <CommitBox
+    const commitCards = this.props.versions.map(version => (
+      <CommitCard
         key={version.sha}
         sha={version.sha}
         img={version.author.avatar_url}
@@ -24,7 +24,7 @@ export class Timeline extends Component {
     // return <div>{commitBoxes.slice(0, this.props.displayAmount)}</div>;
     return (
       <div className="Timeline">
-        <div className="Timeline-boxes">{commitBoxes}</div>
+        <div className="Timeline-cards">{commitCards}</div>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-.CommitBox {
+.CommitCard {
   margin: 2rem 0;
   height: 10vh;
   width: 20vw;
@@ -11,18 +11,18 @@
   overflow: hidden;
 }
 
-.CommitBox:hover {
+.CommitCard:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
 @media (max-width: 820px) {
-  .CommitBox {
+  .CommitCard {
     margin: 1rem 1rem;
   }
 }
 
-.CommitBox img {
+.CommitCard img {
   max-width: 15%;
   max-height: 15%;
   height: auto;

@@ -10,7 +10,7 @@
   background: transparent;
 }
 
-.Timeline-boxes {
+.Timeline-cards {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 820px) {
-  .Timeline-boxes {
+  .Timeline-cards {
     flex-direction: row;
     justify-content: flex-start;
     width: max-content;
