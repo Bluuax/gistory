@@ -16,6 +16,7 @@ export class Timeline extends Component {
         name={version.commit.author.name}
         date={version.commit.author.date}
         message={version.commit.message}
+        selectedCard={this.props.selectedCard}
         selectCommit={this.props.selectCommit}
       />
     ));

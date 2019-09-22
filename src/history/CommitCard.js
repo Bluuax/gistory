@@ -14,14 +14,16 @@ export class CommitCard extends Component {
 
   render() {
     return (
-      <div className="CommitCard" onClick={this.handleClick}>
+      <div
+        className={`CommitCard ${this.props.sha === this.props.selectedCard && 'CommitCard-active'}`}
+        onClick={this.handleClick}
+      >
         <div>{this.props.message}</div>
         <div className="CommitCard-user">
           <img src={this.props.img} alt="avatar" />
           {this.props.name}
           <br />
-          committed on {this.props.name}
-          {/* {this.getHumanReadableTime()} */}
+          committed on 11.09.2019
           {/* {this.getHumanReadableTime()} */}
         </div>
       </div>

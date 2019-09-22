@@ -74,7 +74,12 @@ export class History extends Component {
         ) : (
           <div className="History-container">
             <div className="History-timeline">
-              <Timeline displayAmount={6} versions={this.state.versions} selectCommit={this.selectCommit} />
+              <Timeline
+                displayAmount={6}
+                versions={this.state.versions}
+                selectedCard={this.state.selectedCommit.sha}
+                selectCommit={this.selectCommit}
+              />
             </div>
             <div className="History-code">
               <Code content={this.state.selectedCommit.content} language="jsx" /> {/* TODO: Dynamisch ermitteln */}
