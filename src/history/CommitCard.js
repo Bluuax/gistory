@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { humanReadableTime } from '../common/helpers.js';
+import { humanReadableDate } from '../common/helpers.js';
 import './CommitCard.css';
 
 export class CommitCard extends Component {
@@ -7,9 +7,9 @@ export class CommitCard extends Component {
     this.props.selectCommit(this.props.sha);
   };
 
-  getHumanReadableTime() {
+  gethumanReadableDate() {
     const date = new Date(this.props.date);
-    return humanReadableTime(date);
+    return humanReadableDate(date);
   }
 
   render() {
@@ -23,8 +23,7 @@ export class CommitCard extends Component {
           <img src={this.props.img} alt="avatar" />
           {this.props.name}
           <br />
-          committed on 11.09.2019
-          {/* {this.getHumanReadableTime()} */}
+          committed on {` ${this.gethumanReadableDate()}`}
         </div>
       </div>
     );

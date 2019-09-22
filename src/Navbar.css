@@ -1,28 +1,11 @@
 .Navbar {
   padding: 0.3rem 0 0.05rem 0;
   margin: 1vh auto 4vh auto;
-  width: 96.5vw;
+  width: 97vw;
   background: linear-gradient(#56ccf2, #25a5ed);
   border-radius: 1.2rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   transition: all ease 0.5s;
-}
-
-@media (max-width: 820px) {
-  .Navbar {
-    margin: 0;
-    width: 100%;
-    border-radius: 0;
-  }
-}
-
-/* TODO */
-@media (max-width: 630px) {
-  .Navbar {
-    margin: 0;
-    width: 100%;
-    border-radius: 0;
-  }
 }
 
 .Navbar-container {
@@ -62,4 +45,23 @@
   width: 100%;
   padding-top: 0.5rem;
   border-bottom: 0.1rem solid #abebc6;
+}
+
+@media (max-width: 820px) {
+  .Navbar {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 630px) {
+  .Navbar {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  .Navbar-element {
+    padding: 0 1rem;
+  }
 }

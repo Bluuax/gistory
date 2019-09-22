@@ -1,4 +1,12 @@
-function humanReadableTime(date) {
+function humanReadableDate(date) {
+  return new Intl.DateTimeFormat('en-GB', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+}
+
+function humanReadableDateTime(date) {
   return new Intl.DateTimeFormat('en-GB', {
     year: 'numeric',
     month: '2-digit',
@@ -9,4 +17,4 @@ function humanReadableTime(date) {
   }).format(date);
 }
 
-export { humanReadableTime };
+export { humanReadableDate, humanReadableDateTime };
