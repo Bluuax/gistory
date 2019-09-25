@@ -10,7 +10,7 @@ export class Navbar extends Component {
         <ul className="Navbar-container">
           <li className="Navbar-element">
             <NavLink exact to="/" className="Navbar-link" activeClassName="Navbar-link-active">
-              Home
+              Search
             </NavLink>
           </li>
           {/* TODO: Ausblenden wenn noch kein context-state gesetzt wurde */}

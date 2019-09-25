@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import Footer from './Footer';
-import './Landing.css';
+import './Search.css';
 
-function Landing() {
+function Search() {
   const [input, setInput] = useState('');
   const { dispatch } = useContext(Context);
 
@@ -41,8 +41,8 @@ function Landing() {
   };
 
   return (
-    <div className="Landing">
-      <h1 className="Landing-title">Gistory</h1>
+    <div className="Search">
+      <h1 className="Search-title">Gistory</h1>
       <h3>Type the GitHub URL into the Textbox</h3>
 
       {/* TODO: Add proper Form */}
@@ -56,4 +56,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Search;

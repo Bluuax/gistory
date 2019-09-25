@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import Landing from './Landing';
+import Search from './Search';
 import History from './history/History';
 import Authentication from './common/Authentication';
 import About from './About';
@@ -19,7 +19,7 @@ function App() {
           <Navbar />
         </header>
         <Switch>
-          <Route exact path="/" component={Landing}></Route>
+          <Route exact path="/" component={Search}></Route>
           <Route exact path="/history" component={History}></Route>
           <Route exact path="/tutorial" component={Authentication}></Route>
           <Route exact path="/about" component={About}></Route>

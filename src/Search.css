@@ -1,14 +1,14 @@
-.Landing {
+.Search {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Landing-title {
+.Search-title {
   font-size: 5rem;
 }
 
-.Landing input {
+.Search input {
   margin: 2rem;
   border-style: none;
   border-radius: 1rem;

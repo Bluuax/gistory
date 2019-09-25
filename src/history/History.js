@@ -54,7 +54,7 @@ function History() {
       }
     }
     fetchData();
-  }, []);
+  }, [store.source]);
 
   const selectCommit = sha => {
     setSelectedCommit(versions.find(version => version.sha === sha));
