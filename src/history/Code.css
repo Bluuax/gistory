@@ -9,13 +9,6 @@
   transition: all ease 0.5s;
 }
 
-@media (max-width: 820px) {
-  .Code {
-    width: 95vw;
-    font-size: 0.8rem;
-  }
-}
-
 .Code pre {
   text-align: left;
   padding: 1rem;
@@ -48,6 +41,16 @@
 
 .Code-line-animation {
   animation: fade-in 0.5s;
+}
+
+@media (max-width: 820px) {
+  .Code {
+    width: 95vw;
+    font-size: 0.8rem;
+  }
+  .Code pre {
+    padding: 0;
+  }
 }
 
 @keyframes fade-in {
