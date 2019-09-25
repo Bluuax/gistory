@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
+import { Context } from './common/store';
 import Footer from './Footer';
 import './Landing.css';
 
-export class Landing extends Component {
-  state = {
-    input: ''
+function Landing() {
+  const [input, setInput] = useState('');
+  const { dispatch } = useContext(Context);
+
+  const handleChange = e => {
+    setInput(e.target.value);
   };
 
-  handleChange = e => {
-    this.setState({ input: e.target.value });
-  };
-
-  handleClick = () => {
-    console.log('HANDLEINPUT');
-    console.log(this.state.input);
-
+  const handleClick = () => {
+    if (verifyInput(input)) {
+      // dispatch({ type: 'set', value: input });
+      dispatch({
+        type: 'set',
+        value: 'https://api.github.com/repos/bluuax/gistory/commits?sha=master&path=src/App.js'
+      });
+      // TODO: history.push
+    } else {
+      // TODO: Snackbar
+      alert('Error');
+    }
     /* TODO 
         verify that state is set and not empty
     
@@ -24,21 +32,28 @@ export class Landing extends Component {
     */
   };
 
-  render() {
-    return (
-      <div className="Landing">
-        <h1 className="Landing-title">Gistory</h1>
-        <h3>Type the GitHub URL into the Textbox</h3>
+  const verifyInput = input => {
+    if (input !== '') {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
-        {/* TODO: Add proper Form */}
-        <input type="text" value={this.state.input} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>Go</button>
+  return (
+    <div className="Landing">
+      <h1 className="Landing-title">Gistory</h1>
+      <h3>Type the GitHub URL into the Textbox</h3>
 
-        {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}
-        <Footer />
-      </div>
-    );
-  }
+      {/* TODO: Add proper Form */}
+      <form action=""></form>
+      <input type="text" value={input} onChange={handleChange} />
+      <button onClick={handleClick}>Go</button>
+
+      {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}
+      <Footer />
+    </div>
+  );
 }
 
 export default Landing;

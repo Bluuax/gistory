@@ -13,6 +13,7 @@ export class Navbar extends Component {
               Home
             </NavLink>
           </li>
+          {/* TODO: Ausblenden wenn noch kein context-state gesetzt wurde */}
           <li className="Navbar-element">
             <NavLink exact to="/history" className="Navbar-link" activeClassName="Navbar-link-active">
               History
