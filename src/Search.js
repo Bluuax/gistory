@@ -14,7 +14,7 @@ function Search(props) {
   };
 
   const handleClick = () => {
-    if (verifyInput(input)) {
+    try {
       // https://github.com/Bluuax/gistory/blob/master/README.md
       // https://github.com/Bluuax/gistory/blob/master/src/App.js
 
@@ -42,7 +42,7 @@ function Search(props) {
         value: source
       });
       props.history.push('/history');
-    } else {
+    } catch (e) {
       // TODO: Snackbar
       error();
       openNotification();
@@ -56,26 +56,14 @@ function Search(props) {
     */
   };
 
-  const verifyInput = input => {
-    if (input !== '') {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const error = () => {
-    message.error('Wie viele Kuhs hat das H?');
+    message.error(`File couldn't be found...`);
   };
 
   const openNotification = () => {
     notification.open({
-      message: 'Notification Title',
-      description:
-        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-      onClick: () => {
-        console.log('Notification Clicked!');
-      }
+      message: 'Error',
+      description: `File couldn't be found...`
     });
   };
 

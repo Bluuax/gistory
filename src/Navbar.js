@@ -13,7 +13,7 @@ function Navbar() {
             Search
           </NavLink>
         </li>
-        {store.source.commitSource !== '' && store.source.contentSource !== '' && (
+        {store.source.commitUrl !== '' && store.source.contentUrl !== '' && (
           <li className="Navbar-element">
             <NavLink exact to="/history" className="Navbar-link" activeClassName="Navbar-link-active">
               History
