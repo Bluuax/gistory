@@ -13,9 +13,6 @@ function History() {
   //   - Branch dynamisch machen */
 
   // TODO: Redirect wenn kein context-state gesetzt wurde
-  const owner = 'Bluuax';
-  const repo = 'gistory';
-  const path = 'src/App.js';
 
   const [versions, setVersions] = useState([]);
   const [selectedCommit, setSelectedCommit] = useState({});
@@ -26,15 +23,14 @@ function History() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const commitListResp = await axios.get(store.source, {
+        const commitListResp = await axios.get(store.source.commitUrl, {
           headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
         });
         const commits = commitListResp.data;
 
-        const contentSource = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`;
         const commitsResp = await Promise.all(
           commits.map(async commit => {
-            return await axios.get(`${contentSource}${commit.sha}`, {
+            return await axios.get(`${store.source.contentUrl}${commit.sha}`, {
               headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
             });
           })
@@ -56,7 +52,7 @@ function History() {
       }
     }
     fetchData();
-  }, [store.source]);
+  }, [store.source.commitUrl, store.source.contentUrl]);
 
   const selectCommit = sha => {
     setSelectedCommit(versions.find(version => version.sha === sha));

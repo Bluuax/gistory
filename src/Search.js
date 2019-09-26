@@ -15,10 +15,26 @@ function Search(props) {
   const handleClick = () => {
     if (verifyInput(input)) {
       // dispatch({ type: 'set', value: input });
+
+      const source = {
+        commitUrl: 'https://api.github.com/repos/Bluuax/gistory/commits?sha=master&path=src/App.js',
+        contentUrl: 'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref='
+      };
+
       dispatch({
-        type: 'set',
-        value: 'https://api.github.com/repos/bluuax/gistory/commits?sha=master&path=src/App.js'
+        type: 'setSource',
+        value: source
       });
+
+      // dispatch({
+      //   type: 'setCommitSource',
+      //   value: 'https://api.github.com/repos/bluuax/gistory/commits?sha=master&path=src/App.js'
+      // });
+      // dispatch({
+      //   type: 'setContentSource',
+      //   // value: 'https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref='
+      //   value: 'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref='
+      // });
       props.history.push('/history');
     } else {
       // TODO: Snackbar
