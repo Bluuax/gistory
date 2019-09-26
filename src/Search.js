@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import Footer from './Footer';
-import { Input, Button, message, notification } from 'antd';
+import { Input, Button, notification } from 'antd';
 import './Search.css';
 
 function Search(props) {
@@ -33,7 +33,6 @@ function Search(props) {
       });
       props.history.push('/history');
     } catch (e) {
-      error();
       openNotification();
     }
   };
@@ -52,14 +51,10 @@ function Search(props) {
     props.history.push('/history');
   };
 
-  const error = () => {
-    message.error(`File couldn't be found...`);
-  };
-
   const openNotification = () => {
     notification.open({
-      message: 'Error',
-      description: `File couldn't be found...`
+      message: 'Houston, we have a problem',
+      description: `We searched everywhere and we still could not find your file...`
     });
   };
 
