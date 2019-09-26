@@ -15,21 +15,11 @@ function Search(props) {
 
   const handleClick = () => {
     try {
-      // https://github.com/Bluuax/gistory/blob/master/README.md
-      // https://github.com/Bluuax/gistory/blob/master/src/App.js
-
       const splits = input.split('github.com/')[1].split('/');
-      console.log(splits);
       const owner = splits[0];
       const repo = splits[1];
       const branch = splits[3];
-
-      // TODO: refactor
-      let tmp = '';
-      for (let i = 4; i < splits.length; i++) {
-        tmp += splits[i] + '/';
-      }
-      const path = tmp.slice(0, -1);
+      const path = splits.slice(4).join('/');
 
       const source = {
         url: input,
@@ -43,7 +33,6 @@ function Search(props) {
       });
       props.history.push('/history');
     } catch (e) {
-      // TODO: Snackbar
       error();
       openNotification();
     }
