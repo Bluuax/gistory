@@ -11,7 +11,8 @@ function History() {
   //   /* TODO:
   //   - URL dnyamisch auslesen
   //   - Branch dynamisch machen */
-  //   - Redirect wenn kein context-state gesetzt wurde
+
+  // TODO: Redirect wenn kein context-state gesetzt wurde
   const owner = 'Bluuax';
   const repo = 'gistory';
   const path = 'src/App.js';

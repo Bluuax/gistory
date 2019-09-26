@@ -4,7 +4,7 @@ import Footer from './Footer';
 import { Input, Button, message, notification } from 'antd';
 import './Search.css';
 
-function Search() {
+function Search(props) {
   const [input, setInput] = useState('');
   const { dispatch } = useContext(Context);
 
@@ -19,7 +19,7 @@ function Search() {
         type: 'set',
         value: 'https://api.github.com/repos/bluuax/gistory/commits?sha=master&path=src/App.js'
       });
-      // TODO: history.push
+      props.history.push('/history');
     } else {
       // TODO: Snackbar
       error();
@@ -53,7 +53,7 @@ function Search() {
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       onClick: () => {
         console.log('Notification Clicked!');
-      },
+      }
     });
   };
 

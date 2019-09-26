@@ -18,7 +18,7 @@ export class CommitCard extends Component {
         className={`CommitCard ${this.props.sha === this.props.selectedCard && 'CommitCard-active'}`}
         onClick={this.handleClick}
       >
-        <div>{this.props.message}</div>
+        <div className="CommitCard-message">{this.props.message}</div>
         <div className="CommitCard-user">
           <img src={this.props.img} alt="avatar" />
           {this.props.name}
