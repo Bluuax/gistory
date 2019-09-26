@@ -1,5 +1,5 @@
 import React from 'react';
-export const initialState = { source: { commitUrl: '', contentUrl: '' } };
+export const initialState = { source: { url: '', commitUrl: '', contentUrl: '' } };
 
 export const reducer = (state, action) => {
   switch (action.type) {

@@ -6,6 +6,7 @@ import './Search.css';
 
 function Search(props) {
   const [input, setInput] = useState('');
+  const { store } = useContext(Context);
   const { dispatch } = useContext(Context);
 
   const handleChange = e => {
@@ -14,27 +15,32 @@ function Search(props) {
 
   const handleClick = () => {
     if (verifyInput(input)) {
-      // dispatch({ type: 'set', value: input });
+      // https://github.com/Bluuax/gistory/blob/master/README.md
+      // https://github.com/Bluuax/gistory/blob/master/src/App.js
+
+      const splits = input.split('github.com/')[1].split('/');
+      console.log(splits);
+      const owner = splits[0];
+      const repo = splits[1];
+      const branch = splits[3];
+
+      // TODO: refactor
+      let tmp = '';
+      for (let i = 4; i < splits.length; i++) {
+        tmp += splits[i] + '/';
+      }
+      const path = tmp.slice(0, -1);
 
       const source = {
-        commitUrl: 'https://api.github.com/repos/Bluuax/gistory/commits?sha=master&path=src/App.js',
-        contentUrl: 'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref='
+        url: input,
+        commitUrl: `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&path=${path}`,
+        contentUrl: `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`
       };
 
       dispatch({
         type: 'setSource',
         value: source
       });
-
-      // dispatch({
-      //   type: 'setCommitSource',
-      //   value: 'https://api.github.com/repos/bluuax/gistory/commits?sha=master&path=src/App.js'
-      // });
-      // dispatch({
-      //   type: 'setContentSource',
-      //   // value: 'https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref='
-      //   value: 'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref='
-      // });
       props.history.push('/history');
     } else {
       // TODO: Snackbar
@@ -77,7 +83,12 @@ function Search(props) {
     <div className="Search">
       <h1 className="Search-title">Gistory</h1>
       <h3>Type the GitHub URL into the Textbox</h3>
-      <Input size="large" value={input} onChange={handleChange} placeholder="GitHub-URL" />
+      <Input
+        size="large"
+        value={input}
+        onChange={handleChange}
+        placeholder={store.source.url !== '' ? store.source.url : 'GitHub-URL'}
+      />
       <Button onClick={handleClick} type="primary">
         Go
       </Button>
