@@ -14,7 +14,7 @@ function Navbar() {
           </NavLink>
         </li>
         {store.source.commitUrl !== '' && store.source.contentUrl !== '' && (
-          <li className="Navbar-element">
+          <li className="Navbar-element Navbar-odd-element">
             <NavLink exact to="/history" className="Navbar-link" activeClassName="Navbar-link-active">
               History
             </NavLink>

@@ -24,6 +24,21 @@
   padding: 0 2rem;
 }
 
+.Navbar-odd-element {
+  animation: fade-in-up 0.2s;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .Navbar-link {
   color: white;
   font-size: 1rem;
