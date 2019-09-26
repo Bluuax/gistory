@@ -4,6 +4,7 @@ import axios from 'axios';
 import Timeline from './Timeline';
 import Code from './Code';
 import Card from './Card';
+import { Spin } from 'antd';
 import './History.css';
 
 function History() {
@@ -64,10 +65,7 @@ function History() {
     <React.Fragment>
       {loading ? (
         <div className="History-spinner-container">
-          <div className="History-spinner">
-            <div></div>
-            <div></div>
-          </div>
+          <Spin size="large" />
         </div>
       ) : (
         <div className="History-container">

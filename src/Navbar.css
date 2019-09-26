@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+.Navbar ul {
+  margin: 0.8rem;
+}
+
 .Navbar-element {
   padding: 0 2rem;
 }
@@ -26,11 +30,15 @@
   font-weight: bold;
 }
 
+.Navbar a:hover {
+  color: white;
+}
+
 .Navbar-element > .Navbar-link::after {
   content: '';
   display: block;
   width: 0;
-  padding-top: 0.5rem;
+  padding-top: 0.4rem;
   border-bottom: 0.1rem solid #f8c471;
   transition: 0.5s;
 }
@@ -43,7 +51,7 @@
   content: '';
   display: block;
   width: 100%;
-  padding-top: 0.5rem;
+  padding-top: 0.4rem;
   border-bottom: 0.1rem solid #abebc6;
 }
 

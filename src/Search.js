@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import Footer from './Footer';
+import { Input, Button, message, notification } from 'antd';
 import './Search.css';
 
 function Search() {
@@ -21,7 +22,8 @@ function Search() {
       // TODO: history.push
     } else {
       // TODO: Snackbar
-      alert('Error');
+      error();
+      openNotification();
     }
     /* TODO 
         verify that state is set and not empty
@@ -40,16 +42,29 @@ function Search() {
     }
   };
 
+  const error = () => {
+    message.error('Wie viele Kuhs hat das H?');
+  };
+
+  const openNotification = () => {
+    notification.open({
+      message: 'Notification Title',
+      description:
+        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      onClick: () => {
+        console.log('Notification Clicked!');
+      },
+    });
+  };
+
   return (
     <div className="Search">
       <h1 className="Search-title">Gistory</h1>
       <h3>Type the GitHub URL into the Textbox</h3>
-
-      {/* TODO: Add proper Form */}
-      <form action=""></form>
-      <input type="text" value={input} onChange={handleChange} />
-      <button onClick={handleClick}>Go</button>
-
+      <Input size="large" value={input} onChange={handleChange} placeholder="GitHub-URL" />
+      <Button onClick={handleClick} type="primary">
+        Go
+      </Button>
       {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}
       <Footer />
     </div>

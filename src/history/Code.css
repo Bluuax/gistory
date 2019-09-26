@@ -12,6 +12,7 @@
 .Code pre {
   text-align: left;
   padding: 1rem;
+  border-radius: 1rem;
   overflow: auto;
   scrollbar-width: none;
 }
