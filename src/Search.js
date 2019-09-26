@@ -47,13 +47,20 @@ function Search(props) {
       error();
       openNotification();
     }
-    /* TODO 
-        verify that state is set and not empty
-    
-        if File is found and valid 
-        --> route to history 
-        else route to error page or display error here
-    */
+  };
+
+  const handleDemo = () => {
+    const source = {
+      url: 'https://github.com/Bluuax/gistory/blob/master/src/App.js',
+      commitUrl: 'https://api.github.com/repos/Bluuax/gistory/commits?sha=master&path=src/App.js',
+      contentUrl: 'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref='
+    };
+
+    dispatch({
+      type: 'setSource',
+      value: source
+    });
+    props.history.push('/history');
   };
 
   const error = () => {
@@ -77,10 +84,12 @@ function Search(props) {
         onChange={handleChange}
         placeholder={store.source.url !== '' ? store.source.url : 'GitHub-URL'}
       />
-      <Button onClick={handleClick} type="primary">
-        Go
-      </Button>
-      {/*TODO: If Site is found --> History.js routen else --> 404-Page or show error only -->*/}
+      <div>
+        <Button onClick={handleClick} type="primary">
+          Go
+        </Button>
+        <Button onClick={handleDemo}>Demo</Button>
+      </div>
       <Footer />
     </div>
   );

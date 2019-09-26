@@ -14,3 +14,13 @@
   width: 50rem;
   height: 3rem;
 }
+
+.Search button {
+  margin: 1rem;
+}
+
+@media (max-width: 820px) {
+  .Search input {
+    width: 80%;
+  }
+}
