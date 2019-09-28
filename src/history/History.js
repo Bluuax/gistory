@@ -8,7 +8,7 @@ import Card from './Card';
 import { Spin } from 'antd';
 import './History.css';
 
-function History(props) {
+function History() {
   const { store } = useContext(Context);
   const [versions, setVersions] = useState([]);
   const [selectedCommit, setSelectedCommit] = useState({});
