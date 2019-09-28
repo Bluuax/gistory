@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { humanReadableDate } from '../common/helpers.js';
+import { humanReadableDate } from '../../common/helpers.js';
 import { Avatar } from 'antd';
 import './CommitCard.css';
 

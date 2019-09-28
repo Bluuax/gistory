@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../common/store';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Timeline from './Timeline';
+import Timeline from './timeline/Timeline';
 import Code from './Code';
 import Card from './Card';
 import { Spin } from 'antd';
