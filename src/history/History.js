@@ -14,39 +14,48 @@ function History() {
   const [selectedCommit, setSelectedCommit] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const dataAvailable = store.source.commitUrl !== '' && store.source.contentUrl !== '';
+
   useEffect(() => {
     async function fetchData() {
-      try {
-        const commitListResp = await axios.get(store.source.commitUrl, {
-          headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
-        });
-        const commits = commitListResp.data;
+      if (dataAvailable) {
+        try {
+          const commitListResp = await axios.get(store.source.commitUrl, {
+            headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+          });
+          const commits = commitListResp.data;
 
-        const commitsResp = await Promise.all(
-          commits.map(async commit => {
-            return await axios.get(`${store.source.contentUrl}${commit.sha}`, {
-              headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
-            });
-          })
-        );
+          const commitsResp = await Promise.all(
+            commits.map(async commit => {
+              return await axios.get(`${store.source.contentUrl}${commit.sha}`, {
+                headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+              });
+            })
+          );
 
-        const allCommits = commits.map((version, index) => ({ ...version, content: commitsResp[index].data.content }));
+          const allCommits = commits.map((version, index) => ({
+            ...version,
+            content: commitsResp[index].data.content
+          }));
 
-        setVersions(allCommits);
-        setSelectedCommit({ ...allCommits[0] });
-        setLoading(false);
+          setVersions(allCommits);
+          setSelectedCommit({ ...allCommits[0] });
+          setLoading(false);
 
-        // TODO: Remove
-        const temp = await axios.get('https://api.github.com/rate_limit', {
-          headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
-        });
-        console.log(temp.data.rate);
-      } catch (e) {
-        console.error(`ERROR: ${e}`);
+          // TODO: Remove
+          const temp = await axios.get('https://api.github.com/rate_limit', {
+            headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+          });
+          console.log(temp.data.rate);
+        } catch (e) {
+          // TODO: Modal-Dialog --> Error / API-Calls exceeded --> Login
+          // Display Epoch-Time until refresh, offer Authentification
+          console.error(`ERROR: ${e}`);
+        }
       }
     }
     fetchData();
-  }, [store.source.commitUrl, store.source.contentUrl]);
+  }, [dataAvailable, store.source.commitUrl, store.source.contentUrl]);
 
   const selectCommit = sha => {
     setSelectedCommit(versions.find(version => version.sha === sha));
@@ -54,7 +63,7 @@ function History() {
 
   return (
     <React.Fragment>
-      {store.source.commitUrl === '' && store.source.contentUrl === '' && <Redirect to="/" />}
+      {!dataAvailable && <Redirect to="/" />}
       {loading ? (
         <div className="History-spinner-container">
           <Spin size="large" />
