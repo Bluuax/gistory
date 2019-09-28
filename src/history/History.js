@@ -36,7 +36,7 @@ function History() {
         setSelectedCommit({ ...allCommits[0] });
         setLoading(false);
 
-        // TODO: Temp
+        // TODO: Remove
         const temp = await axios.get('https://api.github.com/rate_limit', {
           headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
         });
@@ -76,7 +76,7 @@ function History() {
             <Card title="Info" color="#f5cba7" />
           </div>
           <div className="History-card History-changes-card">
-            <Card title="Changes" color="#bb8fce" /> {/* TODO: Modaler Dialog - See all changes */}
+            <Card title="Changes" color="#bb8fce" />
           </div>
         </div>
       )}

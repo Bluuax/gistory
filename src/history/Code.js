@@ -8,13 +8,13 @@ export class Code extends Component {
   render() {
     return (
       <div className="Code">
+        {/* TODO: Refactor code */}
         <Highlight
           {...defaultProps}
           theme={theme}
           code={Base64.decode(this.props.content)}
           language={this.props.language}
         >
-          {/* TODO */}
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>
               <code>
@@ -23,7 +23,7 @@ export class Code extends Component {
                     {...getLineProps({ line, key: `${i}${line.map(item => item.content)}` })}
                     className="Code-line-animation"
                   >
-                    <div className="line-number">{i + 1}</div> {/* TODO */}
+                    <div className="line-number">{i + 1}</div>
                     {line.map((token, key) => (
                       <span {...getTokenProps({ token, key })} />
                     ))}
