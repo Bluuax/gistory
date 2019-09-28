@@ -1,24 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import netlify from 'netlify-auth-providers';
 
-export class Authentication extends Component {
-  handleClick = () => {
+function Authentication() {
+  const handleClick = () => {
     const authenticator = new netlify({});
-    authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (err, data) => {
-      err
-        ? console.error(`Error Authenticating with GitHub: ${err}`)
-        : window.localStorage.setItem('token', data.token);
+    authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (e, data) => {
+      e ? console.error(`Error Authenticating with GitHub: ${e}`) : window.localStorage.setItem('token', data.token);
     });
   };
 
-  render() {
-    return (
-      <div>
-        {/* TODO: GitHub - sign in styling */}
-        <button onClick={this.handleClick}>Authenticate</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      {/* TODO: Add GitHub Sign In Button styling */}
+      <button onClick={handleClick}>Authenticate</button>
+    </div>
+  );
 }
 
 export default Authentication;
