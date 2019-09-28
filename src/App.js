@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { Context, initialState, reducer } from './common/store';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Konami from 'react-konami-code';
 import axios from 'axios';
 import Navbar from './Navbar';
@@ -25,14 +25,14 @@ function App() {
         <header>
           <Navbar />
         </header>
+        <Konami action={easterEgg} />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/history" component={History} />
           <Route exact path="/tutorial" component={Authentication} />
           <Route exact path="/about" component={About} />
-          <Route component={Search} />
+          <Redirect to="/" />
         </Switch>
-        <Konami action={easterEgg} />
       </div>
     </Context.Provider>
   );
