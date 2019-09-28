@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../common/store';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Timeline from './Timeline';
 import Code from './Code';
@@ -7,18 +8,11 @@ import Card from './Card';
 import { Spin } from 'antd';
 import './History.css';
 
-function History() {
-  //   /* TODO:
-  //   - URL dnyamisch auslesen
-  //   - Branch dynamisch machen */
-
-  // TODO: Redirect wenn kein context-state gesetzt wurde
-
+function History(props) {
+  const { store } = useContext(Context);
   const [versions, setVersions] = useState([]);
   const [selectedCommit, setSelectedCommit] = useState({});
   const [loading, setLoading] = useState(true);
-
-  const { store } = useContext(Context);
 
   useEffect(() => {
     async function fetchData() {
@@ -60,6 +54,7 @@ function History() {
 
   return (
     <React.Fragment>
+      {store.source.commitUrl === '' && store.source.contentUrl === '' && <Redirect to="/" />}
       {loading ? (
         <div className="History-spinner-container">
           <Spin size="large" />
