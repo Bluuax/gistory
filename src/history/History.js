@@ -13,7 +13,6 @@ function History(props) {
   const [versions, setVersions] = useState([]);
   const [selectedCommit, setSelectedCommit] = useState({});
   const [loading, setLoading] = useState(true);
-  const [status, setStatus] = useState();
 
   const dataAvailable = store.source.commitUrl !== '' && store.source.contentUrl !== '';
 
@@ -42,6 +41,7 @@ function History(props) {
 
           setVersions(allCommits);
           setSelectedCommit({ ...allCommits[0] });
+          setLoading(false);
 
           // TODO: Remove
           const temp = await axios.get('https://api.github.com/rate_limit', {
@@ -50,26 +50,20 @@ function History(props) {
           console.log(temp.data.rate);
           // -----------
         } catch (e) {
-          setStatus(e);
-        } finally {
-          setLoading(false);
+          if (e.response.status === 401) {
+            window.localStorage.clear();
+            props.history.push('/auth');
+          } else if (e.response.status === 403) {
+            props.history.push('/auth');
+          }
         }
       }
     }
     fetchData();
-  }, [dataAvailable, store.source.commitUrl, store.source.contentUrl]);
+  }, [store.source.commitUrl, store.source.contentUrl, dataAvailable, props.history]);
 
   const selectCommit = sha => {
     setSelectedCommit(versions.find(version => version.sha === sha));
-  };
-
-  const handleError = () => {
-    if (status.response.status === 403) {
-      props.history.push('/auth');
-    } else if (status.response.status === 401) {
-      window.localStorage.clear();
-      props.history.push('/auth');
-    }
   };
 
   return (
@@ -79,7 +73,7 @@ function History(props) {
         <div className="History-spinner-container">
           <Spin size="large" />
         </div>
-      ) : status === undefined ? (
+      ) : (
         <div className="History-container">
           <div className="History-timeline">
             <Timeline
@@ -99,8 +93,6 @@ function History(props) {
             <Card title="Changes" color="#bb8fce" />
           </div>
         </div>
-      ) : (
-        handleError()
       )}
     </>
   );
