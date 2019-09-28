@@ -15,12 +15,8 @@ function App() {
   const [store, dispatch] = useReducer(reducer, initialState);
 
   const easterEgg = async () => {
-    try {
-      const zenMessage = await axios.get('https://api.github.com/zen');
-      message.info(zenMessage.data);
-    } catch (e) {
-      console.error(e);
-    }
+    const zenMessage = await axios.get('https://api.github.com/zen');
+    message.info(zenMessage.data);
   };
 
   return (
