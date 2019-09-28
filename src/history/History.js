@@ -7,12 +7,14 @@ import Code from './Code';
 import Card from './Card';
 import { Spin } from 'antd';
 import './History.css';
+import Authentication from '../common/Authentication';
 
 function History() {
   const { store } = useContext(Context);
   const [versions, setVersions] = useState([]);
   const [selectedCommit, setSelectedCommit] = useState({});
   const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState();
 
   const dataAvailable = store.source.commitUrl !== '' && store.source.contentUrl !== '';
 
@@ -40,17 +42,17 @@ function History() {
 
           setVersions(allCommits);
           setSelectedCommit({ ...allCommits[0] });
-          setLoading(false);
 
           // TODO: Remove
-          const temp = await axios.get('https://api.github.com/rate_limit', {
-            headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
-          });
-          console.log(temp.data.rate);
+          // const temp = await axios.get('https://api.github.com/rate_limit', {
+          //   headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+          // });
+          // console.log(temp.data.rate);
+          // -----------
         } catch (e) {
-          // TODO: Modal-Dialog --> Error / API-Calls exceeded --> Login
-          // Display Epoch-Time until refresh, offer Authentification
-          console.error(`ERROR: ${e}`);
+          setStatus(e);
+        } finally {
+          setLoading(false);
         }
       }
     }
@@ -61,14 +63,20 @@ function History() {
     setSelectedCommit(versions.find(version => version.sha === sha));
   };
 
+  const handleError = () => {
+    if (status.response.status === 403) {
+      return <Authentication />;
+    }
+  };
+
   return (
-    <React.Fragment>
+    <>
       {!dataAvailable && <Redirect to="/" />}
       {loading ? (
         <div className="History-spinner-container">
           <Spin size="large" />
         </div>
-      ) : (
+      ) : status === undefined ? (
         <div className="History-container">
           <div className="History-timeline">
             <Timeline
@@ -88,8 +96,10 @@ function History() {
             <Card title="Changes" color="#bb8fce" />
           </div>
         </div>
+      ) : (
+        handleError()
       )}
-    </React.Fragment>
+    </>
   );
 }
 
