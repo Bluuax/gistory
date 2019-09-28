@@ -9,13 +9,7 @@
   border: none;
   background-color: #e5e7e9;
   height: 0.1rem;
-  margin: 1rem 5rem;
-}
-
-@media (max-width: 630px) {
-  .Footer-line {
-    margin: 0;
-  }
+  margin: 1rem 10%;
 }
 
 .Footer-link {
