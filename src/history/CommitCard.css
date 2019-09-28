@@ -28,6 +28,16 @@
 @media (max-width: 820px) {
   .CommitCard {
     margin: 1rem 1rem;
+    width: 8.5rem;
+  }
+  .CommitCard span {
+    display: none;
+  }
+  .CommitCard:hover {
+    transform: none;
+  }
+  .CommitCard-active {
+    transform: none;
   }
 }
 
@@ -43,8 +53,6 @@
   overflow: auto;
 }
 
-.CommitCard img {
-  padding: 0 0.5rem;
-  max-width: 3rem;
-  border-radius: 50%;
+.CommitCard-commit-info {
+  margin-left: 0.5rem;
 }

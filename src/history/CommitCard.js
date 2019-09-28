@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { humanReadableDate } from '../common/helpers.js';
+import { Avatar } from 'antd';
 import './CommitCard.css';
 
 export class CommitCard extends Component {
@@ -20,10 +21,12 @@ export class CommitCard extends Component {
       >
         <div className="CommitCard-message">{this.props.message}</div>
         <div className="CommitCard-user">
-          <img src={this.props.img} alt="avatar" />
-          {this.props.name}
-          <br />
-          committed on {` ${this.gethumanReadableDate()}`}
+          <Avatar src={this.props.img} />
+          <div className="CommitCard-commit-info">
+            {`${this.props.name}`}
+            <br />
+            {`committed on ${this.gethumanReadableDate()}`}
+          </div>
         </div>
       </div>
     );
