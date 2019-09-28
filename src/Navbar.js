@@ -14,17 +14,19 @@ function Navbar() {
           </NavLink>
         </li>
         {store.source.commitUrl !== '' && store.source.contentUrl !== '' && (
-          <li className="Navbar-element Navbar-odd-element">
-            <NavLink exact to="/history" className="Navbar-link" activeClassName="Navbar-link-active">
-              History
-            </NavLink>
-          </li>
+          <>
+            <li className="Navbar-element Navbar-odd-element">
+              <NavLink exact to="/history" className="Navbar-link" activeClassName="Navbar-link-active">
+                History
+              </NavLink>
+            </li>
+            <li className="Navbar-element">
+              <NavLink exact to="/stats" className="Navbar-link" activeClassName="Navbar-link-active">
+                Stats
+              </NavLink>
+            </li>
+          </>
         )}
-        <li className="Navbar-element">
-          <NavLink exact to="/tutorial" className="Navbar-link" activeClassName="Navbar-link-active">
-            Tutorial
-          </NavLink>
-        </li>
         <li className="Navbar-element">
           <NavLink exact to="/about" className="Navbar-link" activeClassName="Navbar-link-active">
             About

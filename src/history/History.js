@@ -7,9 +7,8 @@ import Code from './Code';
 import Card from './Card';
 import { Spin } from 'antd';
 import './History.css';
-import Authentication from '../common/Authentication';
 
-function History() {
+function History(props) {
   const { store } = useContext(Context);
   const [versions, setVersions] = useState([]);
   const [selectedCommit, setSelectedCommit] = useState({});
@@ -22,15 +21,16 @@ function History() {
     async function fetchData() {
       if (dataAvailable) {
         try {
+          const header = window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {};
           const commitListResp = await axios.get(store.source.commitUrl, {
-            headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+            headers: header
           });
           const commits = commitListResp.data;
 
           const commitsResp = await Promise.all(
             commits.map(async commit => {
               return await axios.get(`${store.source.contentUrl}${commit.sha}`, {
-                headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+                headers: header
               });
             })
           );
@@ -44,10 +44,10 @@ function History() {
           setSelectedCommit({ ...allCommits[0] });
 
           // TODO: Remove
-          // const temp = await axios.get('https://api.github.com/rate_limit', {
-          //   headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
-          // });
-          // console.log(temp.data.rate);
+          const temp = await axios.get('https://api.github.com/rate_limit', {
+            headers: header
+          });
+          console.log(temp.data.rate);
           // -----------
         } catch (e) {
           setStatus(e);
@@ -65,7 +65,10 @@ function History() {
 
   const handleError = () => {
     if (status.response.status === 403) {
-      return <Authentication />;
+      props.history.push('/auth');
+    } else if (status.response.status === 401) {
+      window.localStorage.clear();
+      props.history.push('/auth');
     }
   };
 

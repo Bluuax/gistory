@@ -10,7 +10,7 @@ function Routes() {
     <Switch>
       <Route exact path="/" component={Search} />
       <Route exact path="/history" component={History} />
-      <Route exact path="/tutorial" component={Authentication} />
+      <Route exact path="/auth" component={Authentication} />
       <Route exact path="/about" component={About} />
       <Redirect to="/" />
     </Switch>

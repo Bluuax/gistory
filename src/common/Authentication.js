@@ -4,7 +4,7 @@ import netlify from 'netlify-auth-providers';
 import { humanReadableDateTime } from './helpers';
 import { Button, Modal } from 'antd';
 
-function Authentication() {
+function Authentication(props) {
   const [visible, setVisible] = useState(true);
   const [cancel, setCancel] = useState(false);
   const [timeToReset, setTimeToReset] = useState();
@@ -33,6 +33,7 @@ function Authentication() {
     const authenticator = new netlify({});
     authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (e, data) => {
       e ? console.error(`Error Authenticating with GitHub: ${e}`) : window.localStorage.setItem('token', data.token);
+      props.history.push('/history');
     });
   };
 
