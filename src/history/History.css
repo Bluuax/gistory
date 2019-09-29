@@ -46,11 +46,3 @@
 .History-info-card {
   grid-area: info-card;
 }
-
-.History-spinner-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
-}

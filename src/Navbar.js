@@ -13,14 +13,14 @@ function Navbar() {
             Search
           </NavLink>
         </li>
-        {store.source.commitUrl !== '' && store.source.contentUrl !== '' && (
+        {store.url !== '' && (
           <>
             <li className="Navbar-element Navbar-odd-element">
               <NavLink exact to="/history" className="Navbar-link" activeClassName="Navbar-link-active">
                 History
               </NavLink>
             </li>
-            <li className="Navbar-element">
+            <li className="Navbar-element Navbar-odd-element">
               <NavLink exact to="/stats" className="Navbar-link" activeClassName="Navbar-link-active">
                 Stats
               </NavLink>

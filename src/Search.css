@@ -19,6 +19,14 @@
   margin: 1rem;
 }
 
+.Search-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+}
+
 @media (max-width: 820px) {
   .Search input {
     width: 80%;
