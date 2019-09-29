@@ -56,7 +56,7 @@ function Authentication(props) {
         >
           <p>Well... This is awkward. Seems like we exceeded the limitations of GitHubs 60 API-Calls per hour.</p>
           <p>But don't worry! We can increase it up to 5000 Calls per hour if you sign in with your GitHub Account!</p>
-          <p>Otherwise it resets in on: {humanReadableDateTime(timeToReset)}</p>
+          <p>Otherwise it resets in: {humanReadableDateTime(timeToReset)}</p>
         </Modal>
       )}
       {timeToReset !== undefined && !visible && cancel && (
