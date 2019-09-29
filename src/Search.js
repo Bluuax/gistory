@@ -21,33 +21,33 @@ function Search(props) {
       const branch = splits[3];
       const path = splits.slice(4).join('/');
 
-      const source = {
-        url: input,
-        commitUrl: `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&path=${path}`,
-        contentUrl: `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`
-      };
-
-      dispatch({
-        type: 'setSource',
-        value: source
-      });
-      props.history.push('/history');
+      loading(owner, repo, branch, path);
     } catch (e) {
       openNotification();
     }
   };
 
   const handleDemo = () => {
+    const owner = 'Bluuax';
+    const repo = 'gistory';
+    const branch = 'master';
+    const path = 'src/App.js';
+
+    loading(owner, repo, branch, path);
+  };
+
+  const loading = (owner, repo, branch, path) => {
     const source = {
-      url: 'https://github.com/Bluuax/gistory/blob/master/src/App.js',
-      commitUrl: 'https://api.github.com/repos/Bluuax/gistory/commits?sha=master&path=src/App.js',
-      contentUrl: 'https://api.github.com/repos/Bluuax/gistory/contents/src/App.js?ref='
+      url: input,
+      commitUrl: `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&path=${path}`,
+      contentUrl: `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`
     };
 
     dispatch({
       type: 'setSource',
       value: source
     });
+
     props.history.push('/history');
   };
 
