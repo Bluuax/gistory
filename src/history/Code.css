@@ -41,7 +41,7 @@
 }
 
 .Code-line-animation {
-  animation: fade-in 0.5s;
+  animation: fade-in 1s;
 }
 
 @media (max-width: 820px) {
@@ -56,10 +56,9 @@
 
 @keyframes fade-in {
   from {
-    transform: translateX(-3rem);
-  }
-
-  to {
-    transform: translateX(0);
-  }
+    opacity:0;
+}
+to {
+    opacity:1;
+}
 }
