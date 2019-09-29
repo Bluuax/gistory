@@ -36,6 +36,7 @@ function History(props) {
 
           const allCommits = commits.map((version, index) => ({
             ...version,
+            name: commitsResp[index].data.name,
             content: commitsResp[index].data.content
           }));
 
@@ -84,7 +85,7 @@ function History(props) {
             />
           </div>
           <div className="History-code">
-            <Code content={selectedCommit.content} language="jsx" /> {/* TODO: Dynamisch ermitteln */}
+            <Code content={selectedCommit.content} language={selectedCommit.name.split('.').pop()} />
           </div>
           <div className="History-card History-info-card">
             <Card title="Info" color="#f5cba7" />

@@ -29,6 +29,7 @@
   .CommitCard {
     margin: 1rem 1rem;
     width: 8.5rem;
+    height: 6rem;
   }
   .CommitCard span {
     display: none;
