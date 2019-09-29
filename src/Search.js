@@ -95,7 +95,7 @@ function Search(props) {
   const openNotification = () => {
     notification.open({
       message: 'Houston, we have a problem',
-      description: `We searched everywhere and we still could not find your file...`
+      description: `We searched everywhere and yet we still could not find your file...`
     });
   };
 
