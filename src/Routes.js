@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Search from './Search';
 import History from './history/History';
 import Stats from './stats/Stats';
-import Authentication from './common/Authentication';
+import Authentication from './Authentication';
 import About from './About';
 
 function Routes() {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import netlify from 'netlify-auth-providers';
-import { humanReadableDateTime } from './helpers';
+import { humanReadableDateTime } from './common/helpers';
 import { Button, Modal } from 'antd';
 
 function Authentication(props) {
