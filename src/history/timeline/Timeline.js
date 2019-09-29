@@ -12,7 +12,7 @@ export class Timeline extends Component {
       <CommitCard
         key={version.sha}
         sha={version.sha}
-        img={version.author.avatar_url}
+        img={version.author && version.author.avatar_url ? version.author.avatar_url : undefined}
         name={version.commit.author.name}
         date={version.commit.author.date}
         message={version.commit.message}
