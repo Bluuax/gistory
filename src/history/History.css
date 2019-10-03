@@ -41,7 +41,7 @@
     grid-template-areas:
       'timeline'
       'code';
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
   }
   .History-changes-card {
     display: none;
