@@ -51,3 +51,10 @@
     display: none;
   }
 }
+
+/* Workaround for Safari */
+@media not all and (min-resolution: 0.001dpcm) {
+  .History-container {
+    padding-bottom: 1rem;
+  }
+}
