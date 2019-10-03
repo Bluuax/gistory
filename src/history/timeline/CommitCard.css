@@ -6,8 +6,7 @@
   margin: 2rem 0;
   width: 20vw;
   max-width: 20rem;
-  height: 10vh;
-  min-height: 7rem;
+  height: auto;
   background-color: #73c6b6;
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);

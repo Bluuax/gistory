@@ -10,7 +10,7 @@
 
 @media (max-width: 820px) {
   .History-container {
-    grid-template-columns: 100vw;
+    grid-template-columns: 100%;
     grid-template-rows: auto;
     grid-row-gap: 2vh;
     grid-template-areas:
