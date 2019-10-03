@@ -6,6 +6,7 @@
   margin: 2rem 0;
   width: 20vw;
   max-width: 20rem;
+  min-height: 5rem;
   height: auto;
   background-color: #73c6b6;
   border-radius: 1rem;
