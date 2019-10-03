@@ -41,6 +41,13 @@
     grid-template-areas:
       'timeline'
       'code';
-    margin-bottom: 10vh;
+    margin-bottom: 1rem;
+  }
+  .History-changes-card {
+    display: none;
+  }
+
+  .History-info-card {
+    display: none;
   }
 }
