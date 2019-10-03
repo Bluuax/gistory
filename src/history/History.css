@@ -41,7 +41,7 @@
     grid-template-areas:
       'timeline'
       'code';
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   .History-changes-card {
     display: none;
@@ -55,6 +55,6 @@
 /* Workaround for Safari */
 @media not all and (min-resolution: 0.001dpcm) {
   .History-container {
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
   }
 }
