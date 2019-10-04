@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import axios from 'axios';
 import Footer from './Footer';
-import { Spin, Input, Button, notification } from 'antd';
+import { humanReadableDateTime } from './common/helpers';
+import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
 function Search(props) {
@@ -25,7 +26,7 @@ function Search(props) {
 
       fetchData(url, owner, repo, branch, path);
     } catch (e) {
-      openNotification();
+      error('Houston, we have a problem...', `We searched everywhere and yet we still could not find your file...`);
     }
   };
 
@@ -74,34 +75,48 @@ function Search(props) {
         value: allCommits
       });
 
-      // TODO: Remove
+      // TODO: Temp - Remove after development
       const temp = await axios.get('https://api.github.com/rate_limit', {
         headers: authHeader
       });
       console.log(temp.data.rate);
-      // -----------
+      // -------------------------------------
 
       props.history.push('/history');
     } catch (e) {
       if (e.response) {
+        const resp = await axios.get('https://api.github.com/rate_limit');
+        const resetDateTime = humanReadableDateTime(resp.data.rate.reset * 1000);
+
         if (e.response.status === 401) {
           window.localStorage.clear();
-          props.history.push('/login');
+          dispatch({
+            type: 'setLoggedIn',
+            value: false
+          });
+          error(
+            'Houston, we have a problem...',
+            `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. Otherwise it resets on: ${resetDateTime}`
+          );
         } else if (e.response.status === 403) {
-          props.history.push('/login');
+          error(
+            'Houston, we have a problem...',
+            `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. Otherwise it resets on: ${resetDateTime}`
+          );
         } else {
           console.error(e);
         }
       }
+      setLoading(false);
     }
   };
 
-  const openNotification = () => {
-    notification.open({
-      message: 'Houston, we have a problem',
-      description: `We searched everywhere and yet we still could not find your file...`
+  function error(title, content) {
+    Modal.error({
+      title: title,
+      content: content
     });
-  };
+  }
 
   return (
     <div className="Search">

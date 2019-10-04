@@ -7,21 +7,21 @@ function Logout(props) {
 
   const logoutAction = () => {
     window.localStorage.clear();
+    props.setState();
     dispatch({
       type: 'setLoggedIn',
       value: false
     });
-    openSuccessNotification();
-    props.setState();
+    openNotification();
   };
 
-  const openSuccessNotification = () => {
+  const openNotification = () => {
     notification.open({
-      message: 'Logout successful'
+      message: 'Logout successful',
+      description: 'Farewell...'
     });
   };
 
-  // TODO
   return <>{logoutAction()}</>;
 }
 

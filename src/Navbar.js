@@ -57,7 +57,7 @@ function Navbar() {
           )}
         </ul>
       </nav>
-      {showModal && (window.localStorage.token ? <Logout setState={handleClick} /> : <Login setState={handleClick} />)}
+      {showModal && (store.loggedIn ? <Logout setState={handleClick} /> : <Login setState={handleClick} />)}
     </>
   );
 }
