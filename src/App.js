@@ -7,8 +7,6 @@ import Routes from './Routes';
 import { message } from 'antd';
 import './App.css';
 
-// ./node_modules/.bin/jsdoc src
-
 /**
  * Central component of the React-App
  */

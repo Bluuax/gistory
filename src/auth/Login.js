@@ -3,7 +3,7 @@ import { Context } from '../common/store';
 import axios from 'axios';
 import netlify from 'netlify-auth-providers';
 import { humanReadableDateTime } from '../common/helpers';
-import { Button, Modal } from 'antd';
+import { Button, Modal, notification } from 'antd';
 
 function Login(props) {
   const { dispatch } = useContext(Context);
@@ -23,12 +23,11 @@ function Login(props) {
 
   const handleOk = e => {
     authenticate();
-    setVisible(false);
+    props.setState();
   };
 
   const handleCancel = e => {
-    setVisible(false);
-    setCancel(true);
+    props.setState();
   };
 
   const authenticate = () => {
@@ -38,7 +37,13 @@ function Login(props) {
       dispatch({
         type: 'setLoggedIn'
       });
-      props.history.push('/history');
+      openNotification();
+    });
+  };
+
+  const openNotification = () => {
+    notification.open({
+      message: 'Login successful'
     });
   };
 
@@ -63,12 +68,6 @@ function Login(props) {
           <p>But don't worry! We can increase it up to 5000 Calls per hour if you sign in with your GitHub Account!</p>
           <p>Otherwise it resets in: {humanReadableDateTime(timeToReset)}</p>
         </Modal>
-      )}
-      {timeToReset !== undefined && !visible && cancel && (
-        <>
-          <h2>So you don't wan't to sign in. In that case enjoy a cat video until the time is up!</h2>
-          <h3>{humanReadableDateTime(timeToReset)}</h3>
-        </>
       )}
     </div>
   );

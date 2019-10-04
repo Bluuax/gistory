@@ -11,6 +11,7 @@ function Logout(props) {
       type: 'setLoggedIn'
     });
     openSuccessNotification();
+    props.setState();
   };
 
   const openSuccessNotification = () => {
@@ -19,12 +20,8 @@ function Logout(props) {
     });
   };
 
-  return (
-    <>
-      {logoutAction()}
-      {props.history.push('/')}
-    </>
-  );
+  // TODO
+  return <>{logoutAction()}</>;
 }
 
 export default Logout;
