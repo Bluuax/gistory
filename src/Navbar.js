@@ -32,6 +32,19 @@ function Navbar() {
             About
           </NavLink>
         </li>
+        {store.loggedIn ? (
+          <li className="Navbar-element">
+            <NavLink exact to="/logout" className="Navbar-link" activeClassName="Navbar-link-active">
+              Logout
+            </NavLink>
+          </li>
+        ) : (
+          <li className="Navbar-element">
+            <NavLink exact to="/login" className="Navbar-link" activeClassName="Navbar-link-active">
+              Login
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

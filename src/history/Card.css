@@ -6,14 +6,18 @@
   transition: all ease 0.5s;
 }
 
+.Card-title {
+  padding-top: 1rem;
+  font-weight: bold;
+}
+
+.Card-content {
+  margin: 1rem;
+}
+
 @media (max-width: 820px) {
   .Card {
     height: 25vh;
     width: 95vw;
   }
-}
-
-.Card-title {
-  padding-top: 1rem;
-  font-weight: bold;
 }

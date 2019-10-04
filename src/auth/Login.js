@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { Context } from '../common/store';
 import axios from 'axios';
 import netlify from 'netlify-auth-providers';
-import { humanReadableDateTime } from './common/helpers';
+import { humanReadableDateTime } from '../common/helpers';
 import { Button, Modal } from 'antd';
 
-function Authentication(props) {
+function Login(props) {
+  const { dispatch } = useContext(Context);
   const [visible, setVisible] = useState(true);
   const [cancel, setCancel] = useState(false);
   const [timeToReset, setTimeToReset] = useState();
@@ -33,6 +35,9 @@ function Authentication(props) {
     const authenticator = new netlify({});
     authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (e, data) => {
       e ? console.error(`Error Authenticating with GitHub: ${e}`) : window.localStorage.setItem('token', data.token);
+      dispatch({
+        type: 'setLoggedIn'
+      });
       props.history.push('/history');
     });
   };
@@ -69,4 +74,4 @@ function Authentication(props) {
   );
 }
 
-export default Authentication;
+export default Login;

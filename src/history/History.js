@@ -32,7 +32,7 @@ function History(props) {
             <Code content={selectedCommit.content} language={selectedCommit.name.split('.').pop()} />
           </div>
           <div className="History-card History-info-card">
-            <Card title="Info" color="#f5cba7" />
+            <Card title="Info" color="#f5cba7" data={selectedCommit} />
           </div>
           <div className="History-card History-changes-card">
             <Card title="Changes" color="#bb8fce" />

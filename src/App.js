@@ -7,13 +7,20 @@ import Routes from './Routes';
 import { message } from 'antd';
 import './App.css';
 
+// ./node_modules/.bin/jsdoc src
+
+/**
+ * Central component of the React-App
+ */
 function App() {
   const [store, dispatch] = useReducer(reducer, initialState);
 
   const easterEgg = async () => {
     let zenMessage;
     try {
-      const resp = await axios.get('https://api.github.com/zen');
+      const resp = await axios.get('https://api.github.com/zen', {
+        headers: window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {}
+      });
       zenMessage = resp.data;
     } catch (e) {
       zenMessage = 'Wambo';
@@ -27,9 +34,9 @@ function App() {
         <header>
           <Navbar />
         </header>
-        <Konami action={easterEgg} />
         <Routes />
       </div>
+      <Konami action={easterEgg} />
     </Context.Provider>
   );
 }

@@ -83,11 +83,15 @@ function Search(props) {
 
       props.history.push('/history');
     } catch (e) {
-      if (e.response.status === 401) {
-        window.localStorage.clear();
-        props.history.push('/auth');
-      } else if (e.response.status === 403) {
-        props.history.push('/auth');
+      if (e.response) {
+        if (e.response.status === 401) {
+          window.localStorage.clear();
+          props.history.push('/login');
+        } else if (e.response.status === 403) {
+          props.history.push('/login');
+        } else {
+          console.error(e);
+        }
       }
     }
   };
