@@ -135,7 +135,7 @@ function Search(props) {
             placeholder={store.url !== '' ? store.url : 'GitHub-URL'}
           />
           <div>
-            <Button onClick={handleClick} type="primary">
+            <Button type="primary" onClick={handleClick}>
               Go
             </Button>
             <Button onClick={handleDemo}>Demo</Button>
