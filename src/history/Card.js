@@ -5,7 +5,7 @@ import './Card.css';
 function Card(props) {
   return (
     <div className="Card" style={{ backgroundColor: props.color }}>
-      <div className="Card-title">{props.title}</div>
+      <h2 className="Card-title">{props.title}</h2>
 
       {/* TODO */}
       {props.title === 'Info' && (
