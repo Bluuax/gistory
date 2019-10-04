@@ -1,5 +1,5 @@
 import React from 'react';
-export const initialState = { url: '', versions: {}, loggedIn: localStorage.token };
+export const initialState = { url: '', versions: {}, loggedIn: localStorage.token !== undefined };
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -8,7 +8,7 @@ export const reducer = (state, action) => {
     case 'setVersions':
       return { url: state.url, versions: action.value, loggedIn: state.loggedIn };
     case 'setLoggedIn':
-      return { url: state.url, versions: state.versions, loggedIn: localStorage.token };
+      return { url: state.url, versions: state.versions, loggedIn: action.value };
     default:
       return state;
   }

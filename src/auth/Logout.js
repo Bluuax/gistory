@@ -8,7 +8,8 @@ function Logout(props) {
   const logoutAction = () => {
     window.localStorage.clear();
     dispatch({
-      type: 'setLoggedIn'
+      type: 'setLoggedIn',
+      value: false
     });
     openSuccessNotification();
     props.setState();

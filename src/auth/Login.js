@@ -7,8 +7,6 @@ import { Button, Modal, notification } from 'antd';
 
 function Login(props) {
   const { dispatch } = useContext(Context);
-  const [visible, setVisible] = useState(true);
-  const [cancel, setCancel] = useState(false);
   const [timeToReset, setTimeToReset] = useState();
 
   useEffect(() => {
@@ -35,7 +33,8 @@ function Login(props) {
     authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (e, data) => {
       e ? console.error(`Error Authenticating with GitHub: ${e}`) : window.localStorage.setItem('token', data.token);
       dispatch({
-        type: 'setLoggedIn'
+        type: 'setLoggedIn',
+        value: true
       });
       openNotification();
     });
@@ -52,7 +51,7 @@ function Login(props) {
       {timeToReset !== undefined && (
         <Modal
           title="Maximum API-Calls exceeded"
-          visible={visible}
+          visible={true}
           onOk={handleOk}
           onCancel={handleCancel}
           footer={[
