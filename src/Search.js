@@ -127,7 +127,6 @@ function Search(props) {
       ) : (
         <>
           <h1 className="Search-title">Gistory</h1>
-          <h3>Type the GitHub URL into the Textbox</h3>
           <Input
             size="large"
             value={input}
