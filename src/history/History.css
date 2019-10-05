@@ -1,8 +1,38 @@
 .History {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: 85vh;
-  grid-template-areas: 'timeline code';
+  grid-template-rows: 5vh 80vh;
+  grid-template-areas:
+    'title code'
+    'timeline code';
+}
+
+.History-title {
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.History-title-style {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0 0 0.3rem 0;
+  max-width: 25rem;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.History-title-style:after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 0.4rem;
+  margin-top: -0.1rem;
+  border-radius: 1rem;
+  background-color: #36d78a;
 }
 
 .History-timeline {
@@ -26,7 +56,7 @@
 }
 
 @media (max-width: 820px) {
-  .History-container {
+  .History {
     grid-template-columns: 100%;
     grid-template-rows: auto;
     grid-row-gap: 2vh;
@@ -35,11 +65,14 @@
       'code';
     margin-bottom: 1.5rem;
   }
+  .History-title {
+    display: none;
+  }
 }
 
 /* Workaround for Safari */
 @media not all and (min-resolution: 0.001dpcm) {
-  .History-container {
+  .History {
     padding-bottom: 1.5rem;
   }
 }

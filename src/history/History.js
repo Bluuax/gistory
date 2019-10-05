@@ -5,7 +5,7 @@ import Timeline from './timeline/Timeline';
 import Code from './Code';
 import './History.css';
 
-function History(props) {
+function History() {
   const { store } = useContext(Context);
   const [selectedCommit, setSelectedCommit] = useState({ ...store.versions[0] });
 
@@ -19,6 +19,9 @@ function History(props) {
         <Redirect to="/" />
       ) : (
         <div className="History">
+          <div className="History-title">
+            <h1 className="History-title-style">{selectedCommit.name}</h1>
+          </div>
           <div className="History-timeline">
             <Timeline
               displayAmount={6}
