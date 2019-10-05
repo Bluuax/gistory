@@ -14,6 +14,15 @@ function Stats() {
     ${Math.floor(Math.random() * 255)}, 0.6`;
   };
 
+  let fontSize = 40;
+  let position = 'right';
+
+  // TODO: Workaround
+  if (window.innerWidth < 375) {
+    fontSize = 30;
+    position = 'bottom';
+  }
+
   return (
     <>
       {store.url === '' ? (
@@ -44,11 +53,11 @@ function Stats() {
               title: {
                 display: true,
                 text: 'Amount of commits',
-                fontSize: 30
+                fontSize: fontSize
               },
               legend: {
                 display: true,
-                position: 'bottom'
+                position: position
               }
             }}
           />
