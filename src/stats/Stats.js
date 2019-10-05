@@ -18,7 +18,7 @@ function Stats() {
   let position = 'right';
 
   // TODO: Workaround
-  if (window.innerWidth < 375) {
+  if (window.innerWidth <= 375) {
     fontSize = 30;
     position = 'bottom';
   }
