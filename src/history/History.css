@@ -1,11 +1,8 @@
 .History-container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: 40vh 40vh;
-  grid-row-gap: 5vh;
-  grid-template-areas:
-    'timeline code info-card'
-    'timeline code changes-card';
+  grid-template-columns: auto auto;
+  grid-template-rows: 85vh;
+  grid-template-areas: 'timeline code';
 }
 
 .History-timeline {
@@ -25,14 +22,6 @@
   align-items: center;
 }
 
-.History-changes-card {
-  grid-area: changes-card;
-}
-
-.History-info-card {
-  grid-area: info-card;
-}
-
 @media (max-width: 820px) {
   .History-container {
     grid-template-columns: 100%;
@@ -42,13 +31,6 @@
       'timeline'
       'code';
     margin-bottom: 1.5rem;
-  }
-  .History-changes-card {
-    display: none;
-  }
-
-  .History-info-card {
-    display: none;
   }
 }
 

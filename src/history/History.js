@@ -3,7 +3,6 @@ import { Context } from '../common/store';
 import { Redirect } from 'react-router-dom';
 import Timeline from './timeline/Timeline';
 import Code from './Code';
-import Card from './Card';
 import './History.css';
 
 function History(props) {
@@ -30,12 +29,6 @@ function History(props) {
           </div>
           <div className="History-code">
             <Code content={selectedCommit.content} language={selectedCommit.name.split('.').pop()} />
-          </div>
-          <div className="History-card History-info-card">
-            <Card title="Info" color="#f5cba7" data={selectedCommit} />
-          </div>
-          <div className="History-card History-changes-card">
-            <Card title="Changes" color="#bb8fce" />
           </div>
         </div>
       )}

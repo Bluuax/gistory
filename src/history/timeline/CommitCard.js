@@ -16,7 +16,9 @@ export class CommitCard extends Component {
       >
         <div className="CommitCard-message">{this.props.message}</div>
         <div className="CommitCard-user">
-          <Avatar icon={!this.props.img && 'user'} src={this.props.img && this.props.img} />
+          <div>
+            <Avatar icon={!this.props.img && 'user'} src={this.props.img && this.props.img} />
+          </div>
           <div className="CommitCard-commit-info">
             {`${this.props.name}`}
             <br />
