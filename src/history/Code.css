@@ -42,14 +42,17 @@
 }
 
 .Code-line-animation {
-  animation: fade-in 0.5s;
+  animation: fade-in 0.75s;
 }
 
 @keyframes fade-in {
-  from {
+  0% {
     transform: translateX(-3rem);
   }
-  to {
+  70% {
+    transform: translateX(0.5rem);
+  }
+  100% {
     transform: translateX(0);
   }
 }
