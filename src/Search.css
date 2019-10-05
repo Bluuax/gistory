@@ -7,8 +7,8 @@
 
 .Search-title {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-weight: bold;
   font-size: 6rem;
+  font-weight: bold;
 }
 
 .Search-title:after {
