@@ -1,2 +1,10 @@
 .Stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Stats > canvas {
+  max-height: 50rem;
+  max-width: 100rem;
 }
