@@ -1,4 +1,4 @@
-.History-container {
+.History {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 85vh;

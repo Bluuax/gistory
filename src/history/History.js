@@ -18,7 +18,7 @@ function History(props) {
       {store.url === '' ? (
         <Redirect to="/" />
       ) : (
-        <div className="History-container">
+        <div className="History">
           <div className="History-timeline">
             <Timeline
               displayAmount={6}
