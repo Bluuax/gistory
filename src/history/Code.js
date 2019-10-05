@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { Base64 } from 'js-base64';
+import theme from 'prism-react-renderer/themes/github';
 import './Code.css';
-import theme from './theme';
 
 export class Code extends Component {
   render() {
