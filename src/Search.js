@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import axios from 'axios';
 import Footer from './Footer';
-import { humanReadableDateTime } from './common/helpers';
+import { formattedDateTime } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
@@ -86,7 +86,7 @@ function Search(props) {
     } catch (e) {
       if (e.response) {
         const resp = await axios.get('https://api.github.com/rate_limit');
-        const resetDateTime = humanReadableDateTime(resp.data.rate.reset * 1000);
+        const resetDateTime = formattedDateTime(resp.data.rate.reset * 1000);
 
         if (e.response.status === 401) {
           window.localStorage.clear();

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { humanReadableDate } from '../../common/helpers.js';
+import { formattedDate } from '../../common/helpers.js';
 import { Avatar } from 'antd';
 import './CommitCard.css';
 
@@ -7,11 +7,6 @@ export class CommitCard extends Component {
   handleClick = () => {
     this.props.selectCommit(this.props.sha);
   };
-
-  gethumanReadableDate() {
-    const date = new Date(this.props.date);
-    return humanReadableDate(date);
-  }
 
   render() {
     return (
@@ -25,7 +20,7 @@ export class CommitCard extends Component {
           <div className="CommitCard-commit-info">
             {`${this.props.name}`}
             <br />
-            {`committed on ${this.gethumanReadableDate()}`}
+            {`committed on ${formattedDate(new Date(this.props.date))}`}
           </div>
         </div>
       </div>

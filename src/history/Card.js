@@ -1,5 +1,5 @@
 import React from 'react';
-import { humanReadableDateTime } from '../common/helpers';
+import { formattedDateTime } from '../common/helpers';
 import './Card.css';
 
 function Card(props) {
@@ -12,10 +12,10 @@ function Card(props) {
         <div className="Card-content">
           <p>File Name: {props.data.name}</p>
           <p>Commit Message: {props.data.commit.message}</p>
-          <p>Commit Date/Time: {humanReadableDateTime(new Date(props.data.commit.author.date))}</p>
+          <p>Commit Date/Time: {formattedDateTime(new Date(props.data.commit.author.date))}</p>
           <p>
             Author:{' '}
-            <a href={props.data.author.html_url} target="_blank" rel="noopener noreferrer">
+            <a href={props.data.author && props.data.author.html_url} target="_blank" rel="noopener noreferrer">
               {props.data.commit.author.name}
             </a>
           </p>{' '}

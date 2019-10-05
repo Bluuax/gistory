@@ -3,7 +3,7 @@ import { Context } from './common/store';
 import { NavLink } from 'react-router-dom';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 import './Navbar.css';
 
 function Navbar() {
@@ -44,14 +44,14 @@ function Navbar() {
           </li>
           {store.loggedIn ? (
             <li className="Navbar-element">
-              <Button onClick={handleClick}>
-                <Icon type="logout" />
+              <Button type="default" size="small" shape="round" icon="github" onClick={handleClick}>
+                Logout
               </Button>
             </li>
           ) : (
             <li className="Navbar-element">
-              <Button onClick={handleClick}>
-                <Icon type="login" />
+              <Button type="default" size="small" shape="round" icon="github" onClick={handleClick}>
+                Login
               </Button>
             </li>
           )}
