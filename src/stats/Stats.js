@@ -25,8 +25,8 @@ function Stats() {
               labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
               datasets: [
                 {
-                  label: 'Population',
-                  data: [617594, 181045, 153060, 106519, 105162, 95072],
+                  label: 'Commits',
+                  data: [10, 20, 5, 23, 90, 2],
                   backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -44,11 +44,11 @@ function Stats() {
               title: {
                 display: true,
                 text: 'Amount of commits',
-                fontSize: 40
+                fontSize: 30
               },
               legend: {
                 display: true,
-                position: 'right'
+                position: 'bottom'
               }
             }}
           />
