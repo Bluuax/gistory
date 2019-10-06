@@ -14,10 +14,6 @@ function Stats() {
     ${Math.floor(Math.random() * 255)}, 0.6`;
   };
 
-  // Workaround
-  let position = 'right';
-  window.innerWidth <= 375 && (position = 'bottom');
-
   return (
     <>
       {store.url === '' ? (
@@ -48,7 +44,8 @@ function Stats() {
             options={{
               legend: {
                 display: true,
-                position: position
+                position: 'bottom',
+                labels: { padding: 20 }
               }
             }}
           />
