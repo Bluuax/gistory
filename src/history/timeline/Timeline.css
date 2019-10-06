@@ -19,10 +19,12 @@
 }
 
 @media (max-width: 820px) {
+  .Timeline {
+    height: 100%;
+  }
   .Timeline-cards {
     flex-direction: row;
     justify-content: flex-start;
     width: max-content;
-    height: 100%;
   }
 }
