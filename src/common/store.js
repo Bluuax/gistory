@@ -4,11 +4,11 @@ export const initialState = { url: '', versions: {}, loggedIn: localStorage.toke
 export const reducer = (state, action) => {
   switch (action.type) {
     case 'setUrl':
-      return { url: action.value, versions: state.versions, loggedIn: state.loggedIn };
+      return { ...state, url: action.value };
     case 'setVersions':
-      return { url: state.url, versions: action.value, loggedIn: state.loggedIn };
+      return { ...state, versions: action.value };
     case 'setLoggedIn':
-      return { url: state.url, versions: state.versions, loggedIn: action.value };
+      return { ...state, loggedIn: action.value };
     default:
       return state;
   }
