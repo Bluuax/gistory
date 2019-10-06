@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import axios from 'axios';
 import Footer from './Footer';
-import { formattedDateTime } from './common/helpers';
+import { formattedDateTime, genericColor, randomColor } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
@@ -68,12 +68,17 @@ function Search(props) {
 
       const authors = commits.map(version => version.commit.author.name);
       let uniqueAuthors = {};
-      authors.forEach(i => {
-        uniqueAuthors[i] = (uniqueAuthors[i] || 0) + 1;
+      authors.forEach(author => {
+        uniqueAuthors[author] = (uniqueAuthors[author] || 0) + 1;
       });
 
       const uniqueAuthorNames = Object.keys(uniqueAuthors);
       const uniqueAuthorCounts = Object.values(uniqueAuthors);
+
+      let backgroundColors = [];
+      uniqueAuthorNames.forEach((author, i) => {
+        i <= 6 ? backgroundColors.push(genericColor()[i]) : backgroundColors.push(randomColor());
+      });
 
       dispatch({
         type: 'setUrl',
@@ -91,15 +96,7 @@ function Search(props) {
             {
               label: 'Commits',
               data: uniqueAuthorCounts,
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)',
-                'rgba(255, 99, 132, 0.6)'
-              ]
+              backgroundColor: backgroundColors
             }
           ]
         }

@@ -28,10 +28,10 @@ function genericColor() {
     'rgba(255, 99, 132, 0.6)'
   ];
 }
+
 function randomColor() {
-  return `${Math.floor(Math.random() * 255)}, 
-    ${Math.floor(Math.random() * 255)}, 
-    ${Math.floor(Math.random() * 255)}, 0.6`;
+  const rand = () => Math.floor(Math.random() * 255);
+  return `rgba(${rand()}, ${rand()}, ${rand()}, 0.6)`;
 }
 
 export { formattedDate, formattedDateTime, genericColor, randomColor };
