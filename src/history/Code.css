@@ -12,9 +12,7 @@
 .Code pre {
   width: 100%;
   text-align: left;
-  padding: 1rem;
-  margin: 0;
-  border-radius: 1rem;
+  margin: 1rem;
   overflow: auto;
   scrollbar-width: none;
 }
@@ -56,9 +54,6 @@
   .Code {
     width: 95vw;
     font-size: 0.8rem;
-  }
-  .Code pre {
-    padding: 1rem 0 0 0;
   }
 }
 
