@@ -24,12 +24,6 @@
   background: transparent;
 }
 
-.Code code {
-  display: flex;
-  flex-direction: column;
-  padding: 0 1rem;
-}
-
 .token-line {
   line-height: 1.3em;
   height: 1.3em;
@@ -42,7 +36,7 @@
   opacity: 0.3;
 }
 
-.Code-line-animation {
+.Code-animation {
   animation: fade-in 0.75s;
 }
 
@@ -69,7 +63,7 @@
 }
 
 @media (max-width: 375px) {
-  .Code-line-animation {
+  .Code-animation {
     animation: fade-in 1.5s;
   }
   @keyframes fade-in {
