@@ -12,6 +12,7 @@
     "prism-react-renderer": "^1.0.1",
     "react": "^16.10.2",
     "react-chartjs-2": "^2.8.0",
+    "react-confetti": "^4.0.1",
     "react-dom": "^16.10.2",
     "react-konami-code": "^1.4.0",
     "react-router-dom": "^5.1.2",
