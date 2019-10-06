@@ -1,8 +1,14 @@
 .Stats {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+
+.Stats > h1 {
+  font-size: 5rem;
+  font-weight: bold;
 }
 
 .Stats > canvas {

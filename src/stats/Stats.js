@@ -14,14 +14,9 @@ function Stats() {
     ${Math.floor(Math.random() * 255)}, 0.6`;
   };
 
-  let fontSize = 40;
+  // Workaround
   let position = 'right';
-
-  // TODO: Workaround
-  if (window.innerWidth <= 375) {
-    fontSize = 30;
-    position = 'bottom';
-  }
+  window.innerWidth <= 375 && (position = 'bottom');
 
   return (
     <>
@@ -29,6 +24,7 @@ function Stats() {
         <Redirect to="/" />
       ) : (
         <div className="Stats">
+          <h1>Commits</h1>
           <Doughnut
             data={{
               labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
@@ -50,11 +46,6 @@ function Stats() {
               ]
             }}
             options={{
-              title: {
-                display: true,
-                text: 'Amount of commits',
-                fontSize: fontSize
-              },
               legend: {
                 display: true,
                 position: position
