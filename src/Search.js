@@ -66,6 +66,15 @@ function Search(props) {
         content: commitsResp[index].data.content
       }));
 
+      const authors = commits.map(version => version.commit.author.name);
+      let uniqueAuthors = {};
+      authors.forEach(i => {
+        uniqueAuthors[i] = (uniqueAuthors[i] || 0) + 1;
+      });
+
+      const uniqueAuthorNames = Object.keys(uniqueAuthors);
+      const uniqueAuthorCounts = Object.values(uniqueAuthors);
+
       dispatch({
         type: 'setUrl',
         value: url
@@ -73,6 +82,27 @@ function Search(props) {
       dispatch({
         type: 'setVersions',
         value: allCommits
+      });
+      dispatch({
+        type: 'setChartData',
+        value: {
+          labels: uniqueAuthorNames,
+          datasets: [
+            {
+              label: 'Commits',
+              data: uniqueAuthorCounts,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+                'rgba(255, 99, 132, 0.6)'
+              ]
+            }
+          ]
+        }
       });
 
       // TODO: Temp - Remove after development

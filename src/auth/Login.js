@@ -3,6 +3,12 @@ import { Context } from '../common/store';
 import netlify from 'netlify-auth-providers';
 import { notification } from 'antd';
 
+/**
+ * Sign in with a GitHub Account and increase the API-Limit from 60 to 5000 Calls per hour.
+ * The token is saved in in the localStorage.token.
+ *
+ * @param {*} props
+ */
 function Login(props) {
   const { dispatch } = useContext(Context);
 
