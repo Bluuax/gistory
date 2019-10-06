@@ -3,7 +3,7 @@ import { Context } from './common/store';
 import { NavLink } from 'react-router-dom';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
-import { Button } from 'antd';
+import { Button, Dropdown, Menu, Switch, Icon } from 'antd';
 import './Navbar.css';
 
 function Navbar() {
@@ -13,6 +13,24 @@ function Navbar() {
   const handleClick = () => {
     setShowModal(!showModal);
   };
+
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <Button type="default" size="small" shape="round" icon="github" onClick={handleClick}>
+          {store.loggedIn ? 'Logout' : 'Login'}
+        </Button>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <Switch
+          checkedChildren={<Icon type="bulb" theme="filled" />}
+          unCheckedChildren={<Icon type="bulb" />}
+          defaultChecked
+        />
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <>
@@ -42,19 +60,13 @@ function Navbar() {
               About
             </NavLink>
           </li>
-          {store.loggedIn ? (
-            <li className="Navbar-element">
-              <Button type="default" size="small" shape="round" icon="github" onClick={handleClick}>
-                Logout
+          <li className="Navbar-element">
+            <Dropdown overlay={menu} trigger={['click']}>
+              <Button type="default" size="small" shape="round">
+                Settings <Icon type="down" />
               </Button>
-            </li>
-          ) : (
-            <li className="Navbar-element">
-              <Button type="default" size="small" shape="round" icon="github" onClick={handleClick}>
-                Login
-              </Button>
-            </li>
-          )}
+            </Dropdown>
+          </li>
         </ul>
       </nav>
       {showModal && (store.loggedIn ? <Logout setState={handleClick} /> : <Login setState={handleClick} />)}
