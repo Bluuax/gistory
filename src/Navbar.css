@@ -84,3 +84,12 @@
     padding: 0 1rem;
   }
 }
+
+@media (max-width: 630px) {
+  .Navbar ul {
+    margin: 0.8rem 0;
+  }
+  .Navbar-element {
+    padding: 0 0.8rem;
+  }
+}

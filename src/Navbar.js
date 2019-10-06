@@ -56,11 +56,6 @@ function Navbar() {
             </>
           )}
           <li className="Navbar-element">
-            <NavLink exact to="/about" className="Navbar-link" activeClassName="Navbar-link-active">
-              About
-            </NavLink>
-          </li>
-          <li className="Navbar-element">
             <Dropdown overlay={menu} trigger={['click']}>
               <Button type="default" size="small" shape="round">
                 Settings <Icon type="down" />
