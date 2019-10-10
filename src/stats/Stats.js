@@ -7,7 +7,7 @@ import './Stats.css';
 function Stats() {
   const { store } = useContext(Context);
 
-  // Workaround
+  // Workaround for Chart.js
   let displayLegend = true;
   window.innerWidth <= 375 && (displayLegend = false);
 

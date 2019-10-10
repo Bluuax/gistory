@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import axios from 'axios';
 import Footer from './Footer';
-import { formattedDateTime, genericColor, randomColor } from './common/helpers';
+import { genericColor, randomColor } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
@@ -117,7 +117,7 @@ function Search(props) {
     } catch (e) {
       if (e.response) {
         const resp = await axios.get('https://api.github.com/rate_limit');
-        const resetDateTime = formattedDateTime(resp.data.rate.reset * 1000);
+        const resetTime = new Date(resp.data.rate.reset * 1000).toLocaleTimeString();
 
         if (e.response.status === 401) {
           window.localStorage.clear();
@@ -127,12 +127,14 @@ function Search(props) {
           });
           error(
             'Houston, we have a problem...',
-            `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. Otherwise it resets on: ${resetDateTime}`
+            `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. 
+            Otherwise it resets at: ${resetTime}`
           );
         } else if (e.response.status === 403) {
           error(
             'Houston, we have a problem...',
-            `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. Otherwise it resets on: ${resetDateTime}`
+            `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. 
+            Otherwise it resets at: ${resetTime}`
           );
         } else {
           error('Well... This is awkward', `Looks like we've stumbled upon a mysterious ${e}`);
