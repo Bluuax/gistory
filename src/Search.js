@@ -24,6 +24,10 @@ function Search(props) {
       const branch = splits[3];
       const path = splits.slice(4).join('/');
 
+      if (url === '' || owner === '' || repo === '' || branch === '' || path === '') {
+        throw error;
+      }
+
       fetchData(url, owner, repo, branch, path);
     } catch (e) {
       error('Houston, we have a problem...', `We searched everywhere and yet we still could not find your file...`);
