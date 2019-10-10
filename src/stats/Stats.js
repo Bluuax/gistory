@@ -7,23 +7,29 @@ import './Stats.css';
 function Stats() {
   const { store } = useContext(Context);
 
+  // Workaround
+  let displayLegend = true;
+  window.innerWidth <= 375 && (displayLegend = false);
+
   return (
     <>
       {store.url === '' ? (
         <Redirect to="/" />
       ) : (
         <div className="Stats">
-          <h1>Commits</h1>
-          <Doughnut
-            data={store.chartData}
-            options={{
-              legend: {
-                display: true,
-                position: 'bottom',
-                labels: { padding: 20 }
-              }
-            }}
-          />
+          <h1 className="Stats-title">Commits</h1>
+          <div className="Stats-chart">
+            <Doughnut
+              data={store.chartData}
+              options={{
+                legend: {
+                  display: displayLegend,
+                  position: 'bottom',
+                  labels: { padding: 20 }
+                }
+              }}
+            />
+          </div>
         </div>
       )}
     </>

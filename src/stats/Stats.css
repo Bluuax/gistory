@@ -5,12 +5,26 @@
   align-items: center;
 }
 
-.Stats > h1 {
+.Stats-title {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 3rem;
   font-weight: bold;
 }
 
-.Stats > canvas {
+.Stats-title:after {
+  display: block;
+  content: '';
+  height: 0.5rem;
+  margin-top: -0.1rem;
+  border-radius: 1rem;
+  background-color: #fad7a0;
+}
+
+.Stats-chart {
+  position: relative;
+  margin-top: 2rem;
+  height: 40vh;
+  width: 80vw;
   max-width: 60rem;
   max-height: 30rem;
 }
