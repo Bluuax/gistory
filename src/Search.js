@@ -135,7 +135,7 @@ function Search(props) {
             `Looks like you exceeded the limitations of the GitHubs-API. Sign in with your Github-Account and get 5000 API-Calls per hour. Otherwise it resets on: ${resetDateTime}`
           );
         } else {
-          console.error(e);
+          error('Well... This is awkward', `Looks like we've stumbled upon a mysterious ${e}`);
         }
       }
       setLoading(false);

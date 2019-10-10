@@ -7,7 +7,7 @@
   width: 20vw;
   max-width: 20rem;
   height: auto;
-  background-color: #73c6b6;
+  background-color: #f2f3f4;
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   text-overflow: ellipsis;
@@ -22,7 +22,7 @@
 
 .CommitCard-active {
   transform: scale(1.1);
-  background-color: #fef9e7;
+  background-color: #fad7a0;
 }
 
 .CommitCard-user {

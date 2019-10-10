@@ -40,7 +40,7 @@
   display: block;
   width: 0;
   padding-top: 0.3rem;
-  border-bottom: 0.1rem solid #f8c471;
+  border-bottom: 0.1rem solid #fad7a0;
   transition: 0.5s;
 }
 
@@ -53,7 +53,7 @@
   display: block;
   width: 100%;
   padding-top: 0.3rem;
-  border-bottom: 0.1rem solid #abebc6;
+  border-bottom: 0.1rem solid #ffffff;
 }
 
 .ant-btn:focus,
