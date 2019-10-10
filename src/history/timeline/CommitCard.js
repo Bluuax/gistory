@@ -19,7 +19,7 @@ function CommitCard(props) {
         <div className="CommitCard-commit-info">
           {`${props.name}`}
           <br />
-          {`committed on ${new Date(props.date).toLocaleDateString('de-DE', options)}`}
+          {`committed on ${new Date(props.date).toLocaleDateString('de', options)}`}
         </div>
       </div>
     </div>
