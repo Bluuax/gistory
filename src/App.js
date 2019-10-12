@@ -6,7 +6,8 @@ import Routes from './Routes';
 import './App.css';
 
 /**
- * Central component of the React-App
+ * Central component of the React-App.
+ * Wraps the Context.Provider (global state) around the entire components.
  */
 function App() {
   const [store, dispatch] = useReducer(reducer, initialState);

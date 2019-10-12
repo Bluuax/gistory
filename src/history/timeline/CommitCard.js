@@ -2,6 +2,15 @@ import React from 'react';
 import { Avatar } from 'antd';
 import './CommitCard.css';
 
+/**
+ * Renders a single CommitCard which displays the commit-message, name and image of the committer and the date of the commit.
+ *
+ * @param {string} props.sha - Unique id of the commit
+ * @param {string} props.selectedCard - Sha of the currently selected commit
+ * @param {string} props.img - Profile picture of the committer
+ * @param {string} props.name - Username of the committer
+ * @param {string} props.date - Date of the commit
+ */
 function CommitCard(props) {
   const handleClick = () => {
     props.selectCommit(props.sha);

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import CommitCard from './CommitCard';
 import './Timeline.css';
 
+/**
+ * Renders the whole Timeline with n CommitCards.
+ */
 export class Timeline extends Component {
   static defaultProps = {
     displayAmount: 6
