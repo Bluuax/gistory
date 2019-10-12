@@ -14,7 +14,9 @@ function Login(props) {
   const { dispatch } = useContext(Context);
 
   const loginAction = () => {
+    // Set the value of authTrigger to false in Navbar
     props.setState();
+
     const authenticator = new netlify({});
     authenticator.authenticate({ provider: 'github', scope: '(no scope)' }, (e, data) => {
       if (e) {

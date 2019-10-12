@@ -13,9 +13,10 @@ function Logout(props) {
   const { dispatch } = useContext(Context);
 
   const logoutAction = () => {
-    window.localStorage.clear();
+    // Set the value of authTrigger to false in Navbar
     props.setState();
 
+    window.localStorage.clear();
     dispatch({
       type: 'setLoggedIn',
       value: false
