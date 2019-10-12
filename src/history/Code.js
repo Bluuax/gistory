@@ -4,6 +4,13 @@ import { Base64 } from 'js-base64';
 import theme from 'prism-react-renderer/themes/github';
 import './Code.css';
 
+/**
+ * Renders the coding block and displays the source code of the chosen file.
+ * Every line that changed with be animated upon selection a different commit.
+ *
+ * @param {string} props.content - Content of the chosen file in a base64 format
+ * @param {string} props.language - Language of the chosen file
+ */
 function Code(props) {
   return (
     <Highlight {...defaultProps} theme={theme} code={Base64.decode(props.content)} language={props.language}>

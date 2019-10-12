@@ -5,6 +5,10 @@ import Timeline from './timeline/Timeline';
 import Code from './Code';
 import './History.css';
 
+/**
+ * Renders a grid container for the following components: TimeLine and Code.
+ * Only renders id a file has been chosen, otherwise it redirects to the Search component.
+ */
 function History() {
   const { store } = useContext(Context);
   const [selectedCommit, setSelectedCommit] = useState({ ...store.versions[0] });

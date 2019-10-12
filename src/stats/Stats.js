@@ -4,6 +4,9 @@ import { Redirect } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 import './Stats.css';
 
+/**
+ * Renders a doughnut chart that contains informations about all committers and their respective amout of commits.
+ */
 function Stats() {
   const { store } = useContext(Context);
 

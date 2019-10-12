@@ -6,6 +6,12 @@ import { genericColor, randomColor } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
+/**
+ * Receives an URL from in the input-form. That URL is then used to make Api-Call to GitHub, requesting all commits and
+ * the contents to the specific file. Upon receiving the response, the data is saved in the global state.
+ *
+ * @param {*} props.history.push - Props from react router that allow for pushing on the history
+ */
 function Search(props) {
   const { store, dispatch } = useContext(Context);
   const [input, setInput] = useState('');

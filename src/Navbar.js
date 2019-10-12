@@ -6,6 +6,9 @@ import Logout from './auth/Logout';
 import { Button, Dropdown, Menu, Icon } from 'antd';
 import './Navbar.css';
 
+/**
+ * Renders a Navbar that dynamically changes to show two additional entires (History and Stats) if a valid file has been requested.
+ */
 function Navbar() {
   const { store } = useContext(Context);
   const [authTrigger, setAuthTrigger] = useState(false);

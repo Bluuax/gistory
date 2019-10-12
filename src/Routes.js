@@ -4,6 +4,9 @@ import Search from './Search';
 import History from './history/History';
 import Stats from './stats/Stats';
 
+/**
+ * Defines the routes of the single page application.
+ */
 function Routes() {
   return (
     <Switch>
