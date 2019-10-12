@@ -8,16 +8,16 @@ import './Navbar.css';
 
 function Navbar() {
   const { store } = useContext(Context);
-  const [showModal, setShowModal] = useState(false);
+  const [authTrigger, setAuthTrigger] = useState(false);
 
-  const handleClick = () => {
-    setShowModal(!showModal);
+  const handleAuth = () => {
+    setAuthTrigger(!authTrigger);
   };
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <Button type="default" size="small" shape="round" icon="github" onClick={handleClick}>
+        <Button type="default" size="small" shape="round" icon="github" onClick={handleAuth}>
           {store.loggedIn ? 'Logout' : 'Login'}
         </Button>
       </Menu.Item>
@@ -64,7 +64,7 @@ function Navbar() {
           </li>
         </ul>
       </nav>
-      {showModal && (store.loggedIn ? <Logout setState={handleClick} /> : <Login setState={handleClick} />)}
+      {authTrigger && (store.loggedIn ? <Logout setState={handleAuth} /> : <Login setState={handleAuth} />)}
     </>
   );
 }

@@ -8,6 +8,9 @@ package-lock.json
 # production
 /build
 
+# docs
+/out
+
 # IDE
 .vscode
 
