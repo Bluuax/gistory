@@ -7,7 +7,7 @@ import { notification } from 'antd';
  * This decreaes the GitHub API-Limit from 60 to 5000 Calls per hour.
  *
  * @param {*} props
- * @param {Method} props.setState Sets the authTrigger state in the parent Component
+ * @param {Method} props.setState - Sets the authTrigger state in the parent Component
  */
 function Logout(props) {
   const { dispatch } = useContext(Context);

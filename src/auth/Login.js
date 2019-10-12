@@ -7,8 +7,7 @@ import { notification } from 'antd';
  * Allows a sign in with a GitHub account which increases the GitHub API-Limit from 60 to 5000 Calls per hour.
  * Recieves an OAuth access token which is saved in localStorage.token.
  *
- * @param {*} props
- * @param {Method} props.setState Sets the authTrigger state in the parent Component
+ * @param {function} props.setState - Sets the authTrigger state in the parent Component
  */
 function Login(props) {
   const { dispatch } = useContext(Context);

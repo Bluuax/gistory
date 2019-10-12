@@ -16,18 +16,18 @@ function Navbar() {
 
   const menu = (
     <Menu>
-      <Menu.Item>
-        <Button type="default" size="small" shape="round" icon="github" onClick={handleAuth}>
-          {store.loggedIn ? 'Logout' : 'Login'}
-        </Button>
+      <Menu.Item onClick={handleAuth}>
+        <Icon type="github" />
+        {store.loggedIn ? 'Logout' : 'Sign in with GitHub'}
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item>
-        <Switch
-          checkedChildren={<Icon type="bulb" theme="filled" />}
-          unCheckedChildren={<Icon type="bulb" />}
-          defaultChecked
-        />
+        <Icon type="bulb" theme="filled" />
+        Dark Mode
+      </Menu.Item>
+      <Menu.Item>
+        <Icon type="bulb" />
+        Light Mode
       </Menu.Item>
     </Menu>
   );
