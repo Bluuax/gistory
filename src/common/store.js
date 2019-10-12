@@ -2,7 +2,7 @@ import React from 'react';
 export const initialState = { url: '', versions: {}, chartData: {}, loggedIn: localStorage.token !== undefined };
 
 /**
- * Global store for the app
+ * Global store for the app.
  *
  * @param {*} state - Current global state
  * @param {*} action - Name and value of the desired operation

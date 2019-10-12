@@ -7,7 +7,7 @@ import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
 /**
- * Receives an URL from in the input-form. That URL is then used to make Api-Call to GitHub, requesting all commits and
+ * Renders an input-form for the user and receives an URL that is used to make API-Calls to GitHub, requesting all commits and
  * the contents to the specific file. Upon receiving the response, the data is saved in the global state.
  *
  * @param {*} props.history.push - Props from react router that allow for pushing on the history
