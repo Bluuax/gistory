@@ -3,7 +3,7 @@ import { Context } from './common/store';
 import { NavLink } from 'react-router-dom';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
-import { Button, Dropdown, Menu, Switch, Icon } from 'antd';
+import { Button, Dropdown, Menu, Icon } from 'antd';
 import './Navbar.css';
 
 function Navbar() {
@@ -22,12 +22,12 @@ function Navbar() {
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item>
-        <Icon type="bulb" theme="filled" />
-        Dark Mode
-      </Menu.Item>
-      <Menu.Item>
         <Icon type="bulb" />
         Light Mode
+      </Menu.Item>
+      <Menu.Item>
+        <Icon type="bulb" theme="filled" />
+        Dark Mode
       </Menu.Item>
     </Menu>
   );
