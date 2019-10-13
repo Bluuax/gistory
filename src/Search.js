@@ -7,12 +7,6 @@ import { genericColor, randomColor } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
 
-const useStyles = isDarkMode => {
-  return {
-    color: isDarkMode ? 'white' : 'black'
-  };
-};
-
 /**
  * Renders an input-form for the user and receives an URL that is used to make API-Calls to GitHub, requesting all commits and
  * the contents to the specific file. Upon receiving the response, the data is saved in the global state.
@@ -24,8 +18,6 @@ function Search(props) {
   const { isDarkMode } = useContext(ThemeContext);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const styles = useStyles(isDarkMode);
 
   const handleChange = e => {
     setInput(e.target.value);
@@ -175,7 +167,7 @@ function Search(props) {
         </div>
       ) : (
         <>
-          <h1 style={styles}>Gistory</h1>
+          <h1 style={{ color: isDarkMode ? 'white' : 'black' }}>Gistory</h1>
           <Input
             size="large"
             value={input}

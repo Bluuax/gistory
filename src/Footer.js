@@ -2,18 +2,11 @@ import React, { useContext } from 'react';
 import { ThemeContext } from './common/contexts/ThemeContext';
 import './Footer.css';
 
-const useStyles = isDarkMode => {
-  return {
-    color: isDarkMode ? 'white' : 'black'
-  };
-};
-
 function Footer() {
   const { isDarkMode } = useContext(ThemeContext);
-  const styles = useStyles(isDarkMode);
 
   return (
-    <footer className="Footer" style={styles}>
+    <footer className="Footer" style={{ color: isDarkMode ? 'white' : 'black' }}>
       <hr className="Footer-line" />
       <p>
         Coded with lots of{' '}

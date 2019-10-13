@@ -5,19 +5,12 @@ import { Redirect } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 import './Stats.css';
 
-const useStyles = isDarkMode => {
-  return {
-    color: isDarkMode ? 'white' : 'black'
-  };
-};
-
 /**
  * Renders a doughnut chart that contains informations about all committers and their respective amout of commits.
  */
 function Stats() {
   const { store } = useContext(Context);
   const { isDarkMode } = useContext(ThemeContext);
-  const styles = useStyles(isDarkMode);
 
   // Workaround for Chart.js
   let displayLegend = true;
@@ -29,7 +22,7 @@ function Stats() {
         <Redirect to="/" />
       ) : (
         <div className="Stats">
-          <h1 className="Stats-title" style={styles}>
+          <h1 className="Stats-title" style={{ color: isDarkMode ? 'white' : 'black' }}>
             Commits
           </h1>
           <div className="Stats-chart">
