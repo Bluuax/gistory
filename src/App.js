@@ -1,10 +1,10 @@
 import React, { useReducer } from 'react';
 import { Context, initialState, reducer } from './common/store';
 import { ThemeProvider } from './common/contexts/ThemeContext';
+import PageContent from './PageContent';
 import Navbar from './Navbar';
 import EasterEgg from './EasterEgg';
 import Routes from './Routes';
-import './App.css';
 
 /**
  * Central component of the React-App.
@@ -16,12 +16,12 @@ function App() {
   return (
     <Context.Provider value={{ store, dispatch }}>
       <ThemeProvider>
-        <div className="App">
+        <PageContent>
           <Navbar />
           <Routes />
-        </div>
-        <EasterEgg />
+        </PageContent>
       </ThemeProvider>
+      <EasterEgg />
     </Context.Provider>
   );
 }
