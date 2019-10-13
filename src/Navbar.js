@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
+import { ThemeContext } from './common/contexts/ThemeContext';
 import { NavLink } from 'react-router-dom';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
@@ -11,6 +12,7 @@ import './Navbar.css';
  */
 function Navbar() {
   const { store } = useContext(Context);
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const [authTrigger, setAuthTrigger] = useState(false);
 
   const handleAuth = () => {
@@ -24,19 +26,15 @@ function Navbar() {
         {store.loggedIn ? 'Logout' : 'Sign in with GitHub'}
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item>
-        <Icon type="bulb" />
-        Light Mode
-      </Menu.Item>
-      <Menu.Item>
-        <Icon type="bulb" theme="filled" />
-        Dark Mode
+      <Menu.Item onClick={toggleTheme}>
+        <Icon type="bulb" theme={!isDarkMode && 'filled'} />
+        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </Menu.Item>
     </Menu>
   );
 
   return (
-    <>
+    <header>
       <nav className="Navbar">
         <ul className="Navbar-container">
           <li className="Navbar-element">
@@ -68,7 +66,7 @@ function Navbar() {
         </ul>
       </nav>
       {authTrigger && (store.loggedIn ? <Logout setState={handleAuth} /> : <Login setState={handleAuth} />)}
-    </>
+    </header>
   );
 }
 

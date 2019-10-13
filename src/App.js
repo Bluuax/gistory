@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import { Context, initialState, reducer } from './common/store';
+import { ThemeProvider } from './common/contexts/ThemeContext';
 import Navbar from './Navbar';
 import EasterEgg from './EasterEgg';
 import Routes from './Routes';
@@ -14,13 +15,13 @@ function App() {
 
   return (
     <Context.Provider value={{ store, dispatch }}>
-      <div className="App">
-        <header>
+      <ThemeProvider>
+        <div className="App">
           <Navbar />
-        </header>
+          <Routes />
+        </div>
         <EasterEgg />
-        <Routes />
-      </div>
+      </ThemeProvider>
     </Context.Provider>
   );
 }
