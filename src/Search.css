@@ -5,13 +5,13 @@
   margin-top: 4rem;
 }
 
-.Search-title {
+.Search h1 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 6rem;
   font-weight: bold;
 }
 
-.Search-title:after {
+.Search h1:after {
   display: block;
   content: '';
   height: 0.5rem;

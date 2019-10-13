@@ -1,10 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
+import { ThemeContext } from './common/contexts/ThemeContext';
 import axios from 'axios';
 import Footer from './Footer';
 import { genericColor, randomColor } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
 import './Search.css';
+
+const useStyles = isDarkMode => {
+  return {
+    color: isDarkMode ? 'white' : 'black'
+  };
+};
 
 /**
  * Renders an input-form for the user and receives an URL that is used to make API-Calls to GitHub, requesting all commits and
@@ -14,8 +21,11 @@ import './Search.css';
  */
 function Search(props) {
   const { store, dispatch } = useContext(Context);
+  const { isDarkMode } = useContext(ThemeContext);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const styles = useStyles(isDarkMode);
 
   const handleChange = e => {
     setInput(e.target.value);
@@ -165,7 +175,7 @@ function Search(props) {
         </div>
       ) : (
         <>
-          <h1 className="Search-title">Gistory</h1>
+          <h1 style={styles}>Gistory</h1>
           <Input
             size="large"
             value={input}
