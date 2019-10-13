@@ -62,16 +62,9 @@
     grid-template-areas:
       'timeline'
       'code';
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
   }
   .History-title {
     display: none;
-  }
-}
-
-/* Workaround for Safari */
-@media not all and (min-resolution: 0.001dpcm) {
-  .History {
-    padding-bottom: 1.5rem;
   }
 }
