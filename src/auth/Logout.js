@@ -3,7 +3,7 @@ import { Context } from '../common/store';
 import { notification } from 'antd';
 
 /**
- * Allows a logout and deletes the token saved in localStorage.
+ * Allows a logout and deletes the access token saved in localStorage.
  * This decreaes the GitHub API-Limit from 60 to 5000 Calls per hour.
  *
  * @param {Method} props.setState - Sets the authTrigger state in the parent Component

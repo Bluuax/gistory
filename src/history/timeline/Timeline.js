@@ -3,7 +3,7 @@ import CommitCard from './CommitCard';
 import './Timeline.css';
 
 /**
- * Renders the whole Timeline with n CommitCards.
+ * Renders a Timeline with n CommitCards to display all available commits.
  */
 function Timeline(props) {
   const commitCards = props.versions.map(version => (

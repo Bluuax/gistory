@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from './common/contexts/ThemeContext';
 
+/**
+ * A simple container which selects and displays the theme (light/dark) of the App.
+ *
+ * @param {*} props - React props
+ */
 export function PageContent(props) {
   const { isDarkMode } = useContext(ThemeContext);
   const styles = {

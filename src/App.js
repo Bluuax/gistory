@@ -8,7 +8,7 @@ import Routes from './Routes';
 
 /**
  * Central component of the React-App.
- * Wraps the Context.Provider (global state) around the entire components.
+ * Wraps the Context.Provider (global state) and the Theme around the entire components.
  */
 function App() {
   const [store, dispatch] = useReducer(reducer, initialState);

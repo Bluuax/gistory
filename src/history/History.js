@@ -6,13 +6,18 @@ import Code from './Code';
 import './History.css';
 
 /**
- * Renders a grid container for the following components: TimeLine and Code.
- * Only renders id a file has been chosen, otherwise it redirects to the Search component.
+ * Renders a grid container for the following components: Timeline and Code.
+ * Only renders if a file has been chosen, otherwise it redirects to the Search component.
  */
 function History() {
   const { store } = useContext(Context);
   const [selectedCommit, setSelectedCommit] = useState({ ...store.versions[0] });
 
+  /**
+   * Finds the commit selected by the User from the list of commits and sets that particular commit in the state.
+   *
+   * @param {string} sha - ID of the commit
+   */
   const selectCommit = sha => {
     setSelectedCommit(store.versions.find(version => version.sha === sha));
   };
