@@ -7,6 +7,7 @@ import './Stats.css';
 
 /**
  * Renders a doughnut chart that contains informations about all committers and their respective amout of commits.
+ * The data for the chart is provided through the global store.
  */
 function Stats() {
   const { store } = useContext(Context);

@@ -14,7 +14,7 @@ function History() {
   const [selectedCommit, setSelectedCommit] = useState({ ...store.versions[0] });
 
   /**
-   * Finds the commit selected by the User from the list of commits and sets that particular commit in the state.
+   * Finds the commit selected by the User from the list of commits and sets that particular commit into the state.
    *
    * @param {string} sha - ID of the commit
    */

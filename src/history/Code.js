@@ -6,7 +6,7 @@ import './Code.css';
 
 /**
  * Renders the code block and displays the source code of the chosen file.
- * Every line that changed will be animated upon selection a different commit.
+ * Every line that changed will be animated upon selecting a different commit.
  *
  * @param {string} props.content - Content of the chosen file in a base64 format
  * @param {string} props.language - Language of the chosen file
