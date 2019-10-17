@@ -26,9 +26,8 @@ function CommitCard(props) {
           <Avatar icon={!props.img && 'user'} src={props.img && props.img} />
         </div>
         <div className="CommitCard-commit-info">
-          {`${props.name}`}
-          <br />
-          {`committed on ${new Date(props.date).toLocaleDateString('de', options)}`}
+          <div className="CommitCard-commit-info-name">{props.name}</div>
+          <div>{`committed on ${new Date(props.date).toLocaleDateString('de', options)}`}</div>
         </div>
       </div>
     </div>
