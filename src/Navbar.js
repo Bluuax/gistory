@@ -23,12 +23,12 @@ function Navbar() {
     <Menu>
       <Menu.Item onClick={handleAuth}>
         <Icon type="github" />
-        {store.loggedIn ? 'Logout' : 'Sign in with GitHub'}
+        {store.loggedIn ? ' Logout' : ' Sign in with GitHub'}
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item onClick={toggleTheme}>
         <Icon type="bulb" theme={!isDarkMode && 'filled'} />
-        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+        {isDarkMode ? ' Light Mode' : ' Dark Mode'}
       </Menu.Item>
     </Menu>
   );
