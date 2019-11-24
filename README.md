@@ -6,4 +6,4 @@
 
 ## Hosted on
 
-[gistory.netlify.com](https://gistory.netlify.com/)
+[gistory.dev](https://gistory.dev)
