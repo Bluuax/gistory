@@ -14,8 +14,7 @@ function Stats() {
   const { isDarkMode } = useContext(ThemeContext);
 
   // Workaround for Chart.js
-  let displayLegend = true;
-  window.innerWidth <= 375 && (displayLegend = false);
+  const displayLegend = 375 < window.innerWidth ? true : false;
 
   return (
     <>
@@ -33,7 +32,7 @@ function Stats() {
                 legend: {
                   display: displayLegend,
                   position: 'bottom',
-                  labels: { padding: 20 }
+                  labels: { padding: 20, fontColor: isDarkMode ? '#D0D3D4' : '#666' }
                 }
               }}
             />
