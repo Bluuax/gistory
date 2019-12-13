@@ -43,11 +43,12 @@ function Search(props) {
   };
 
   const handleDemo = () => {
-    const url = 'https://github.com/Bluuax/gistory/blob/master/src/App.js';
-    const owner = 'Bluuax';
-    const repo = 'gistory';
+    const url =
+      'https://github.com/microsoft/vscode/blob/master/src/vs/editor/standalone/common/standaloneThemeService.ts';
+    const owner = 'microsoft';
+    const repo = 'vscode';
     const branch = 'master';
-    const path = 'src/App.js';
+    const path = 'src/vs/editor/standalone/common/standaloneThemeService.ts';
 
     fetchData(url, owner, repo, branch, path);
   };
