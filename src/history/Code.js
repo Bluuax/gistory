@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../common/contexts/ThemeContext';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { Base64 } from 'js-base64';
-import theme from 'prism-react-renderer/themes/github';
+import lightTheme from 'prism-react-renderer/themes/github';
+import darkTheme from 'prism-react-renderer/themes/duotoneDark';
 import './Code.css';
 
 /**
@@ -12,8 +14,15 @@ import './Code.css';
  * @param {string} props.language - Language of the chosen file
  */
 function Code(props) {
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
-    <Highlight {...defaultProps} theme={theme} code={Base64.decode(props.content)} language={props.language}>
+    <Highlight
+      {...defaultProps}
+      theme={isDarkMode ? darkTheme : lightTheme}
+      code={Base64.decode(props.content)}
+      language={props.language}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
           {tokens.map((line, i) => (
