@@ -43,12 +43,11 @@ function Search(props) {
   };
 
   const handleDemo = () => {
-    const url =
-      'https://github.com/microsoft/vscode/blob/master/src/vs/editor/standalone/common/standaloneThemeService.ts';
+    const url = 'https://github.com/microsoft/vscode/blob/master/src/vs/editor/standalone/browser/colorizer.ts';
     const owner = 'microsoft';
     const repo = 'vscode';
     const branch = 'master';
-    const path = 'src/vs/editor/standalone/common/standaloneThemeService.ts';
+    const path = 'src/vs/editor/standalone/browser/colorizer.ts';
 
     fetchData(url, owner, repo, branch, path);
   };
