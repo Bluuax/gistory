@@ -17,7 +17,13 @@ function Footer() {
           🥤
         </span>{' '}
         by{' '}
-        <a href="https://github.com/Bluuax" target="_blank" rel="noopener noreferrer" className="Footer-link">
+        <a
+          href="https://github.com/Bluuax"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="Footer-link"
+          style={{ color: isDarkMode ? 'white' : 'black' }}
+        >
           Max
         </a>
       </p>
