@@ -171,6 +171,7 @@ function Search(props) {
           <h1 style={{ color: isDarkMode ? 'white' : 'black' }}>Gistory</h1>
           <Input
             size="large"
+            style={{ backgroundColor: isDarkMode && '#34495e' }}
             value={input}
             onChange={handleChange}
             placeholder={store.url !== '' ? store.url : 'GitHub-URL'}
