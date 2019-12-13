@@ -3,7 +3,7 @@ import { ThemeContext } from '../common/contexts/ThemeContext';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { Base64 } from 'js-base64';
 import lightTheme from 'prism-react-renderer/themes/github';
-import darkTheme from 'prism-react-renderer/themes/duotoneDark';
+import darkTheme from 'prism-react-renderer/themes/nightOwl';
 import './Code.css';
 
 /**

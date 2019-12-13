@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../common/contexts/ThemeContext';
 import { Avatar } from 'antd';
 import './CommitCard.css';
 
@@ -12,6 +13,8 @@ import './CommitCard.css';
  * @param {string} props.date - Date of the commit
  */
 function CommitCard(props) {
+  const { isDarkMode } = useContext(ThemeContext);
+
   const handleClick = () => {
     props.selectCommit(props.sha);
   };
@@ -19,7 +22,11 @@ function CommitCard(props) {
   const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
 
   return (
-    <div className={`CommitCard ${props.sha === props.selectedCard && 'CommitCard-active'}`} onClick={handleClick}>
+    <div
+      className={`CommitCard ${props.sha === props.selectedCard && 'CommitCard-active'}`}
+      style={{ backgroundColor: isDarkMode ? '#34495e' : '#f2f3f4', color: isDarkMode ? 'white' : 'black' }}
+      onClick={handleClick}
+    >
       <div className="CommitCard-message">{props.message}</div>
       <div className="CommitCard-user">
         <div>

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from '../common/store';
+import { ThemeContext } from '../common/contexts/ThemeContext';
 import { Redirect } from 'react-router-dom';
 import Timeline from './timeline/Timeline';
 import Code from './Code';
@@ -11,6 +12,7 @@ import './History.css';
  */
 function History() {
   const { store } = useContext(Context);
+  const { isDarkMode } = useContext(ThemeContext);
   const [selectedCommit, setSelectedCommit] = useState({ ...store.versions[0] });
 
   /**
@@ -29,7 +31,9 @@ function History() {
       ) : (
         <div className="History">
           <div className="History-title">
-            <h1 className="History-title-style">{selectedCommit.name}</h1>
+            <h1 className="History-title-style" style={{ color: isDarkMode ? 'white' : 'black' }}>
+              {selectedCommit.name}
+            </h1>
           </div>
           <div className="History-timeline">
             <Timeline
