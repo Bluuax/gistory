@@ -21,7 +21,6 @@
 
 .CommitCard-active {
   transform: scale(1.1);
-  background-color: #fad7a0;
 }
 
 .CommitCard-user {

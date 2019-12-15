@@ -21,10 +21,20 @@ function CommitCard(props) {
 
   const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
 
+  const backgroundStyles = () => {
+    let backgroundColor;
+    if (props.sha === props.selectedCard) {
+      backgroundColor = isDarkMode ? '#212F3C' : '#fad7a0';
+    } else {
+      backgroundColor = isDarkMode ? '#5d6d7e' : '#f2f3f4';
+    }
+    return backgroundColor;
+  };
+
   return (
     <div
       className={`CommitCard ${props.sha === props.selectedCard && 'CommitCard-active'}`}
-      style={{ backgroundColor: isDarkMode ? '#5d6d7e' : '#f2f3f4', color: isDarkMode ? 'white' : 'black' }}
+      style={{ backgroundColor: backgroundStyles(), color: isDarkMode ? 'white' : 'black'.backgr }}
       onClick={handleClick}
     >
       <div className="CommitCard-message">{props.message}</div>
