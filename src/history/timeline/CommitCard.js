@@ -34,7 +34,7 @@ function CommitCard(props) {
   return (
     <div
       className={`CommitCard ${props.sha === props.selectedCard && 'CommitCard-active'}`}
-      style={{ backgroundColor: backgroundStyles(), color: isDarkMode ? 'white' : 'black'.backgr }}
+      style={{ backgroundColor: backgroundStyles(), color: isDarkMode ? 'white' : 'black' }}
       onClick={handleClick}
     >
       <div className="CommitCard-message">{props.message}</div>
