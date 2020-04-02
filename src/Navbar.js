@@ -4,7 +4,8 @@ import { ThemeContext } from './common/contexts/ThemeContext';
 import { NavLink } from 'react-router-dom';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
-import { Button, Dropdown, Menu, Icon } from 'antd';
+import { Button, Dropdown, Menu } from 'antd';
+import { GithubFilled, BulbFilled, BulbOutlined, DownOutlined } from '@ant-design/icons';
 import './Navbar.css';
 
 /**
@@ -22,13 +23,13 @@ function Navbar() {
   const menu = (
     <Menu>
       <Menu.Item onClick={handleAuth}>
-        <Icon type="github" />
-        {store.loggedIn ? ' Logout' : ' Sign in with GitHub'}
+        <GithubFilled />
+        {store.loggedIn ? 'Logout' : 'Sign in with GitHub'}
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item onClick={toggleTheme}>
-        <Icon type="bulb" theme={!isDarkMode && 'filled'} />
-        {isDarkMode ? ' Light Mode' : ' Dark Mode'}
+        {isDarkMode ? <BulbOutlined /> : <BulbFilled />}
+        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </Menu.Item>
     </Menu>
   );
@@ -59,7 +60,7 @@ function Navbar() {
           <li className="Navbar-element">
             <Dropdown overlay={menu} trigger={['click']}>
               <Button type="default" size="small" shape="round">
-                Settings <Icon type="down" />
+                Settings <DownOutlined />
               </Button>
             </Dropdown>
           </li>
