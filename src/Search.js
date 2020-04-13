@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from './common/store';
 import { ThemeContext } from './common/contexts/ThemeContext';
-import axios from 'axios';
 import Footer from './Footer';
 import { genericColor, randomColor } from './common/helpers';
 import { Spin, Input, Button, Modal } from 'antd';
@@ -56,26 +55,23 @@ function Search(props) {
     setLoading(true);
     const commitUrl = `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&path=${path}`;
     const contentUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=`;
-    const authHeader = window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {};
+    const requestHeaders = window.localStorage.token ? { Authorization: `Bearer ${window.localStorage.token}` } : {};
 
     try {
-      const commitListResp = await axios.get(commitUrl, {
-        headers: authHeader,
-      });
-      const commits = commitListResp.data;
+      const commitListResp = await fetch(commitUrl, { headers: requestHeaders });
+      const commits = await commitListResp.json();
 
       const commitsResp = await Promise.all(
         commits.map(async (commit) => {
-          return await axios.get(`${contentUrl}${commit.sha}`, {
-            headers: authHeader,
-          });
+          const resp = await fetch(`${contentUrl}${commit.sha}`, { headers: requestHeaders });
+          return await resp.json();
         })
       );
 
       const allCommits = commits.map((version, index) => ({
         ...version,
-        name: commitsResp[index].data.name,
-        content: commitsResp[index].data.content,
+        name: commitsResp[index].name,
+        content: commitsResp[index].content,
       }));
 
       const authors = commits.map((version) => version.commit.author.name);
@@ -115,14 +111,16 @@ function Search(props) {
       });
 
       // Log the amount of available API-Requests
-      const temp = await axios.get('https://api.github.com/rate_limit', { headers: authHeader });
-      console.log(temp.data.rate);
+      const rateLimit = await fetch('https://api.github.com/rate_limit', { headers: requestHeaders });
+      const rateLimitJson = await rateLimit.json();
+      console.log(rateLimitJson);
 
       props.history.push('/history');
     } catch (e) {
       if (e.response) {
-        const resp = await axios.get('https://api.github.com/rate_limit');
-        const resetTime = new Date(resp.data.rate.reset * 1000).toLocaleTimeString();
+        const resp = await fetch('https://api.github.com/rate_limit');
+        const respJson = await resp.json();
+        const resetTime = new Date(respJson.rate.reset * 1000).toLocaleTimeString();
 
         if (e.response.status === 401) {
           window.localStorage.clear();
