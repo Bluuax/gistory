@@ -114,12 +114,10 @@ function Search(props) {
         }
       });
 
-      // TODO: Temp - Remove after development
-      const temp = await axios.get('https://api.github.com/rate_limit', {
-        headers: authHeader
-      });
-      console.log(temp.data.rate);
-      // -------------------------------------
+      // const temp = await axios.get('https://api.github.com/rate_limit', {
+      //   headers: authHeader
+      // });
+      // console.log(temp.data.rate);
 
       props.history.push('/history');
     } catch (e) {
