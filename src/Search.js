@@ -19,7 +19,7 @@ function Search(props) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setInput(e.target.value);
   };
 
@@ -60,14 +60,14 @@ function Search(props) {
 
     try {
       const commitListResp = await axios.get(commitUrl, {
-        headers: authHeader
+        headers: authHeader,
       });
       const commits = commitListResp.data;
 
       const commitsResp = await Promise.all(
-        commits.map(async commit => {
+        commits.map(async (commit) => {
           return await axios.get(`${contentUrl}${commit.sha}`, {
-            headers: authHeader
+            headers: authHeader,
           });
         })
       );
@@ -75,12 +75,12 @@ function Search(props) {
       const allCommits = commits.map((version, index) => ({
         ...version,
         name: commitsResp[index].data.name,
-        content: commitsResp[index].data.content
+        content: commitsResp[index].data.content,
       }));
 
-      const authors = commits.map(version => version.commit.author.name);
+      const authors = commits.map((version) => version.commit.author.name);
       let uniqueAuthors = {};
-      authors.forEach(author => {
+      authors.forEach((author) => {
         uniqueAuthors[author] = (uniqueAuthors[author] || 0) + 1;
       });
 
@@ -94,11 +94,11 @@ function Search(props) {
 
       dispatch({
         type: 'setUrl',
-        value: url
+        value: url,
       });
       dispatch({
         type: 'setVersions',
-        value: allCommits
+        value: allCommits,
       });
       dispatch({
         type: 'setChartData',
@@ -108,16 +108,15 @@ function Search(props) {
             {
               label: 'Commits',
               data: uniqueAuthorCounts,
-              backgroundColor: backgroundColors
-            }
-          ]
-        }
+              backgroundColor: backgroundColors,
+            },
+          ],
+        },
       });
 
-      // const temp = await axios.get('https://api.github.com/rate_limit', {
-      //   headers: authHeader
-      // });
-      // console.log(temp.data.rate);
+      // Log the amount of available API-Requests
+      const temp = await axios.get('https://api.github.com/rate_limit', { headers: authHeader });
+      console.log(temp.data.rate);
 
       props.history.push('/history');
     } catch (e) {
@@ -129,7 +128,7 @@ function Search(props) {
           window.localStorage.clear();
           dispatch({
             type: 'setLoggedIn',
-            value: false
+            value: false,
           });
           error(
             'Houston, we have a problem...',
@@ -153,7 +152,7 @@ function Search(props) {
   function error(title, content) {
     Modal.error({
       title: title,
-      content: content
+      content: content,
     });
   }
 
